@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:ryder/common/app_color/app_colors.dart';
 import 'package:ryder/common/app_icons/app_icons.dart';
 import 'package:ryder/common/svg_base64/ExtractionBase64Image.dart';
 
@@ -53,7 +54,7 @@ class ReusableAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: _buildTitle(),
       actions: actions,
       leading: _buildLeading(context),
-      backgroundColor: backgroundColor,
+      backgroundColor: backgroundColor?? AppColors.primaryColor,
       foregroundColor: foregroundColor,
       elevation: elevation,
       centerTitle: centerTitle,

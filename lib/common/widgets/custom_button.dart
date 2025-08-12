@@ -3,19 +3,21 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ryder/common/app_color/app_colors.dart';
+import 'package:ryder/common/app_text_style/google_app_style.dart';
 import 'package:ryder/common/app_text_style/style.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton(
-      {super.key,
-      this.color,
-      this.textStyle,
-      this.paddingInner = EdgeInsets.zero,
-      required this.onTap,
-      required this.text,
-      this.loading = false,
-      this.width,
-      this.height});
+  const CustomButton({
+    super.key,
+    this.color,
+    this.textStyle,
+    this.paddingInner = EdgeInsets.zero,
+    required this.onTap,
+    required this.text,
+    this.loading = false,
+    this.width,
+    this.height,
+  });
 
   final Function() onTap;
   final String text;
@@ -40,19 +42,12 @@ class CustomButton extends StatelessWidget {
           ? SizedBox(
               height: 20.h,
               width: 20.h,
-              child: const CircularProgressIndicator(
-                color: Colors.white,
-              ),
+              child: const CircularProgressIndicator(color: Colors.white),
             )
-          : Text(
-              text,
-              style: textStyle ??
-                  AppStyles.customSize(
-                      fontWeight: FontWeight.w500,
-                      color: Colors.white,
-                      family: GoogleFonts.inder.toString(),
-                      letterSpacing: 1,
-                      size: 18.sp
+          : Text(text, style: textStyle ??
+                  GoogleFontStyles.h3(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w500,
                   ),
             ),
     );

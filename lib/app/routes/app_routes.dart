@@ -7,6 +7,7 @@ abstract class Routes {
   static const ONBOARD = _Paths.ONBOARD;
   static const SIGN_UP = _Paths.SIGN_UP;
   static const OTP = _Paths.OTP;
+  static const INPUTPHONENUMBER = _Paths.INPUTPHONENUMBER;
 }
 
 abstract class _Paths {
@@ -15,4 +16,5 @@ abstract class _Paths {
   static const ONBOARD = '/onboard';
   static const SIGN_UP = '/sign-up';
   static const OTP = '/otp';
+  static const INPUTPHONENUMBER = '/input_phone';
 }

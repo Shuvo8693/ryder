@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:ryder/app/modules/onboard/views/input_phone_view.dart';
 
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
@@ -25,6 +26,11 @@ class AppPages {
     GetPage(
       name: _Paths.ONBOARD,
       page: () => const OnboardView(),
+      binding: OnboardBinding(),
+    ),
+    GetPage(
+      name: _Paths.INPUTPHONENUMBER,
+      page: () => PhoneInputScreen(),
       binding: OnboardBinding(),
     ),
     GetPage(

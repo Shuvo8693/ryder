@@ -24,6 +24,7 @@ class CustomTextField extends StatefulWidget {
   final bool? isEmail;
   final bool? readOnly;
   final TextStyle? labelTextStyle;
+  final TextStyle? hintStyle;
   final List<TextInputFormatter>? inputFormatters;
   final Function(String?)? onChange;
 
@@ -46,7 +47,7 @@ class CustomTextField extends StatefulWidget {
       this.filColor,
       this.labelText,
       this.isPassword = false,
-        this.onChange, this.readOnly, this.inputFormatters});
+        this.onChange, this.readOnly, this.inputFormatters, this.hintStyle});
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -114,6 +115,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         prefixIconConstraints: BoxConstraints(minHeight: 24.w, minWidth: 24.w),
         labelText: widget.labelText,
         hintText: widget.hintText,
+        hintStyle: widget.hintStyle,
         labelStyle: widget.labelTextStyle
       ),
     );

@@ -4,8 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:ryder/common/app_color/app_colors.dart';
 
 
-ThemeData dark({Color color = AppColors.primaryColor}) => ThemeData(
+ThemeData dark({Color color = AppColors.primaryColor,BuildContext? context} ) => ThemeData(
   fontFamily: GoogleFonts.inder.toString(),
+  textTheme: context!=null ? GoogleFonts.interTextTheme(Theme.of(context).textTheme) :ThemeData.dark().textTheme ,
   primaryColor: color,
   scaffoldBackgroundColor:AppColors.backgroundColor,
   secondaryHeaderColor:  color.withValues(alpha: 0.4),

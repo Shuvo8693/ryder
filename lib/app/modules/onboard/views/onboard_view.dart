@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ryder/common/app_icons/app_icons.dart';
+import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:ryder/app/routes/app_pages.dart';
+import 'package:ryder/common/app_color/app_colors.dart';
 
 import 'package:ryder/common/app_images/app_svg.dart';
 import 'package:ryder/common/custom_appbar/custom_appbar.dart';
@@ -23,46 +26,26 @@ class OnboardView extends StatelessWidget {
                ImageAsset.svg(AppSvg.onboardCarSvg).toImage(height: 217,width: 344),
                const Spacer(flex: 2),
               // Get started button
-              Container(
-                width: double.infinity,
-                height: 56,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(28),
-                  gradient: const LinearGradient(
-                    colors: [Color(0xFF6C5CE7), Color(0xFF8B7ED8)],
-                    begin: Alignment.centerLeft,
-                    end: Alignment.centerRight,
-                  ),
-                ),
-                child: CustomButton(onTap: (){}, text: 'Get started'),
-              ),
+              CustomButton(
+                height: 60.h,
+                  onTap: (){
+                    Get.toNamed(Routes.INPUTPHONENUMBER);
+                  }, text: 'Get started'),
 
-              const SizedBox(height: 24),
+               SizedBox(height: 24.h),
 
               // Description text
-              const Text(
+               Text(
                 'Start Driving and Keep 80% of Each Fare!',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white,
-                ),
+                style: GoogleFonts.inter(fontSize: 14,color: Colors.white),
                 textAlign: TextAlign.center,
               ),
-
-              const SizedBox(height: 8),
-
-              const Text(
-                'Launch the driver app to begin\nyour journey!',
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Color(0xFF8B7ED8),
-                  height: 1.4,
-                ),
+              SizedBox(height: 8.h),
+              Text('Launch the driver app to begin\nyour journey!',
+                style: GoogleFonts.inter(fontSize: 14,color: AppColors.butterflyBoshColor),
                 textAlign: TextAlign.center,
               ),
-
-              const SizedBox(height: 60),
+              SizedBox(height: 60.h),
             ],
           ),
         ),
