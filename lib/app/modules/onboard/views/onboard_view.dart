@@ -3,8 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ryder/common/app_icons/app_icons.dart';
 
 import 'package:ryder/common/app_images/app_svg.dart';
+import 'package:ryder/common/custom_appbar/custom_appbar.dart';
 import 'package:ryder/common/custom_image_provider/custom_image_provider.dart';
-import 'package:ryder/common/svg_base64/ExtractionBase64Image.dart';
+import 'package:ryder/common/widgets/custom_button.dart';
 
 
 class OnboardView extends StatelessWidget {
@@ -12,14 +13,12 @@ class OnboardView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: ReusableAppBar(showLogo: true),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: Column(
             children: [
-              // Logo section
-               SizedBox(height: 80.h),
-               ExtractBase64ImageWidget(svgAssetPath: AppIcons.appIcons),
                const Spacer(flex: 2),
                ImageAsset.svg(AppSvg.onboardCarSvg).toImage(height: 217,width: 344),
                const Spacer(flex: 2),
@@ -35,27 +34,7 @@ class OnboardView extends StatelessWidget {
                     end: Alignment.centerRight,
                   ),
                 ),
-                child: ElevatedButton(
-                  onPressed: () {
-                    // Handle get started action
-                    print('Get started pressed');
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.transparent,
-                    shadowColor: Colors.transparent,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(28),
-                    ),
-                  ),
-                  child: const Text(
-                    'Get started',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
+                child: CustomButton(onTap: (){}, text: 'Get started'),
               ),
 
               const SizedBox(height: 24),

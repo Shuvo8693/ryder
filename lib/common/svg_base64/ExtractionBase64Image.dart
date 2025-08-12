@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'dart:convert';
 import 'dart:typed_data';
 
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 // Method 1: Extract and display the embedded base64 image directly
 class ExtractBase64ImageWidget extends StatefulWidget {
@@ -84,8 +86,8 @@ class _ExtractBase64ImageWidgetState extends State<ExtractBase64ImageWidget> {
         child: Image.memory(
           imageBytes!,
           fit: BoxFit.contain,
-          height: 100,
-          width: 100,
+          height: 36.h,
+          width: 66.w,
           errorBuilder: (context, error, stackTrace) {
             return Center(
               child: Text('Error displaying image'),

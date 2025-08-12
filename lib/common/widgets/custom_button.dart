@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:ryder/common/app_color/app_colors.dart';
 import 'package:ryder/common/app_text_style/style.dart';
 
@@ -30,8 +31,8 @@ class CustomButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: loading ? () {} : onTap,
       style: ElevatedButton.styleFrom(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.r)),
-        backgroundColor: color ?? AppColors.primaryColor,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(79.r)),
+        backgroundColor: color ?? AppColors.buttonBackgroundColor,
         minimumSize: Size(width ?? Get.width, height ?? 53.h),
         padding: paddingInner,
       ),
@@ -46,11 +47,13 @@ class CustomButton extends StatelessWidget {
           : Text(
               text,
               style: textStyle ??
-                  AppStyles.h4(
+                  AppStyles.customSize(
                       fontWeight: FontWeight.w500,
                       color: Colors.white,
-                      family: "Schuyler",
-                      letterSpacing: 1),
+                      family: GoogleFonts.inder.toString(),
+                      letterSpacing: 1,
+                      size: 18.sp
+                  ),
             ),
     );
   }
