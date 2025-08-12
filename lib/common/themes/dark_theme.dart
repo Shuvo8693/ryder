@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:ryder/common/app_color/app_colors.dart';
 
 
-ThemeData dark({Color color = const Color(0xFF2683EB)}) => ThemeData(
-  fontFamily: 'Roboto',
+ThemeData dark({Color color = AppColors.primaryColor}) => ThemeData(
+  fontFamily: GoogleFonts.inder.toString(),
   primaryColor: color,
   scaffoldBackgroundColor:AppColors.backgroundColor,
-  secondaryHeaderColor:  color.withOpacity(0.4),
+  secondaryHeaderColor:  color.withValues(alpha: 0.4),
   disabledColor:AppColors.subTextColor,
   brightness: Brightness.dark,
   hintColor:AppColors.hintColor,

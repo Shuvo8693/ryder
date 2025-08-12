@@ -20,7 +20,7 @@ class GoogleFontText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(title,
-      style: GoogleFonts.poppins(
+      style: GoogleFonts.inder(
         fontWeight: fontWeight,
         fontSize: fontSize,
         color: color,

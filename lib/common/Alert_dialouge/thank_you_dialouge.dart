@@ -24,7 +24,7 @@ class ThankYouDialog {
             mainAxisSize: MainAxisSize.min,
             children: [
               // Starburst Checkmark Icon
-              SvgPicture.asset(AppIcons.tikMarkIcon,height: 90.h,colorFilter: ColorFilter.mode(AppColors.primaryColor, BlendMode.srcIn) ,),
+              SvgPicture.asset('====Give====',height: 90.h,colorFilter: ColorFilter.mode(AppColors.primaryColor, BlendMode.srcIn) ,),
               SizedBox(height: 16.h),
               // Thank You Title
               Text(

@@ -122,7 +122,7 @@ class AppDrawer extends StatelessWidget {
                     AppString.mentorshipRequestsText,
                     style: AppStyles.h3(),
                   ),
-                  leading: SvgPicture.asset(AppIcons.membershipRequestIcon,
+                  leading: SvgPicture.asset('====Give====',
                       height: 32.h,
                       colorFilter: const ColorFilter.mode(
                           Colors.black, BlendMode.srcIn)),
@@ -162,7 +162,7 @@ class AppDrawer extends StatelessWidget {
                     style: AppStyles.h3(),
                   ),
                   leading: SvgPicture.asset(
-                    AppIcons.termConditionIcon,
+                   '====Give====',
                     height: 32.h,
                     colorFilter:
                         const ColorFilter.mode(Colors.black, BlendMode.srcIn),
@@ -179,7 +179,7 @@ class AppDrawer extends StatelessWidget {
                     style: AppStyles.h3(color: Colors.redAccent),
                   ),
                   leading: SvgPicture.asset(
-                    AppIcons.logOutIcon,
+                    '====Give====',
                     height: 32.h,
                     colorFilter: const ColorFilter.mode(
                         Colors.redAccent, BlendMode.srcIn),

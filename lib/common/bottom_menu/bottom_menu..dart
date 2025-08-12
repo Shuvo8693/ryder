@@ -98,10 +98,10 @@ class _BottomMenuState extends State<BottomMenu> {
           selectedFontSize: 12.0,
           unselectedFontSize: 12.0,
           items: [
-            _buildBottomNavItem(AppIcons.homesIcon, 'Home'),
-            _buildBottomNavItem(userRole =='mechanic'? AppIcons.orderIcon : AppIcons.bookingIcon, userRole =='mechanic'? 'Order': 'My Booking'),
-            _buildBottomNavItem(userRole =='mechanic'? AppIcons.paymentIcon : AppIcons.mechanicIcon, userRole =='mechanic'? 'Payment': 'Mechanic'),
-            _buildBottomNavItem(AppIcons.profile1Icon, 'Account'),
+            _buildBottomNavItem('====Give====', 'Home'),
+            _buildBottomNavItem(userRole =='mechanic'? '====Give====' : '====Give====', userRole =='mechanic'? 'Order': 'My Booking'),
+            _buildBottomNavItem(userRole =='mechanic'? '====Give====': '====Give====', userRole =='mechanic'? 'Payment': 'Mechanic'),
+            _buildBottomNavItem('====Give====', 'Account'),
           ],
         ),
     );

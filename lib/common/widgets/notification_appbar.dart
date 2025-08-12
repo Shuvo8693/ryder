@@ -25,7 +25,7 @@ class NotificationAppBar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         AppLogo(
-            imageHeight: 50.h, imageWidth: 173.w, logo: AppImage.appLogoImg),
+            imageHeight: 50.h, imageWidth: 173.w, logo: '===input====='),
         Wrap(
           spacing: 8,
           children: [

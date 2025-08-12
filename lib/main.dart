@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:ryder/common/themes/dark_theme.dart';
 
 import 'app/routes/app_pages.dart';
 import 'common/app_constant/app_constant.dart';
@@ -49,7 +50,7 @@ class MyApp extends StatelessWidget {
                 debugShowCheckedModeBanner: false,
                 navigatorKey: Get.key,
                 //theme: themeController.darkTheme ? dark(): light(),
-                theme: light(),
+                theme: dark(),
                 defaultTransition: Transition.topLevel,
                 locale: localizeController.locale,
                 translations: Messages(languages: languages),

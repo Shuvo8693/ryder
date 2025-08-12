@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ryder/common/app_icons/app_icons.dart';
 
-import 'package:get/get.dart';
+import 'package:ryder/common/app_images/app_svg.dart';
+import 'package:ryder/common/custom_image_provider/custom_image_provider.dart';
+import 'package:ryder/common/svg_base64/ExtractionBase64Image.dart';
 
-import '../controllers/onboard_controller.dart';
 
 class OnboardView extends StatelessWidget {
   const OnboardView({super.key});
@@ -16,41 +18,11 @@ class OnboardView extends StatelessWidget {
           child: Column(
             children: [
               // Logo section
-              const SizedBox(height: 80),
-              const Text(
-                'rydr',
-                style: TextStyle(
-                  fontSize: 32,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white,
-                  letterSpacing: 1.2,
-                ),
-              ),
-
-              // Spacer to push illustration to center
-              const Spacer(flex: 2),
-
-              // Illustration placeholder
-              Container(
-                width: 280.w,
-                height: 200.h,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.grey[800], // Placeholder background
-                ),
-                child: const Center(
-                  child: Text('Illustration will go here\n(Shield + Person + Device)',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 14,
-                    ),
-                  ),
-                ),
-              ),
-
-              const Spacer(flex: 2),
-
+               SizedBox(height: 80.h),
+               ExtractBase64ImageWidget(svgAssetPath: AppIcons.appIcons),
+               const Spacer(flex: 2),
+               ImageAsset.svg(AppSvg.onboardCarSvg).toImage(height: 217,width: 344),
+               const Spacer(flex: 2),
               // Get started button
               Container(
                 width: double.infinity,
