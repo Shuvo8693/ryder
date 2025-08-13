@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 import 'package:ryder/app/modules/otp/controllers/resend_otp_controller.dart';
+import 'package:ryder/app/routes/app_pages.dart';
 import 'package:ryder/common/app_color/app_colors.dart';
 import 'package:ryder/common/app_text_style/google_app_style.dart';
 import 'package:ryder/common/app_text_style/style.dart';
@@ -141,8 +142,9 @@ class _OtpViewState extends State<OtpView> {
                       return CustomButton(
                           loading: otpController.isLoading.value,
                           onTap: () async {
+                            Get.toNamed(Routes.SIGN_UP);
                             if (_formKey.currentState!.validate()) {
-                              await otpController.sendOtp(isResetPassword);
+                             // await otpController.sendOtp(isResetPassword);
                             }
                           },
                           text: 'Verify Now');

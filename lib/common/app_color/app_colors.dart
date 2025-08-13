@@ -11,6 +11,37 @@ class AppColors{
   static const Color bottomNavColor= Color(0xFF0b2651);
   static const Color scheduleCardColor= Color(0xFFD4F9F9);
 
+  // Input field colors
+  static const Color fillColor = Color(0xFF2A2535); // Dark input background
+  static const Color inputBorderColor = Color(0x1AFFFFFF); // 10% white opacity
+  static const Color inputFocusedBorderColor = Color(0x4DFFFFFF); // 30% white opacity
+
+  // Text colors
+  static const Color textColor = Colors.white;
+  static const Color subTextColor = Color(0x99FFFFFF); // 60% white opacity
+  static const Color hintColor = Color(0x4DFFFFFF); // 30% white opacity
+
+  // Card and container colors
+  static const Color cardColor = Color(0xFF2A2535);
+  static const Color bottomBarColor = Color(0xFF1E1A24);
+
+  // Other colors
+  static const Color dividerColor = Color(0x1AFFFFFF); // 10% white opacity
+  static const Color shadowColor = Color(0x40000000); // 25% black opacity
+  static const Color errorColor = Color(0xFFDD3135);
+  static const Color successColor = Color(0xFF4CAF50);
+  static const Color warningColor = Color(0xFFFFA726);
+
+  // Gradient colors (if needed)
+  static const LinearGradient primaryGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [
+      Color(0xFF6366F1),
+      Color(0xFF8B5CF6),
+    ],
+  );
+
 
   //fixed color
   static const Color transparent = Colors.transparent;
@@ -27,19 +58,11 @@ class AppColors{
   static const failedColor = Color(0xffff3c00);
 
   static const backgroundColor= Color(0xFF010101);
-  static const Color cardColor =  Color(0xFF2F2F2F);
   static const Color cardLightColor =  Color(0xFF555555);
   static const Color borderColor =  Color(0xFF2683EB);
-  static const Color textColor =  Color(0xFF111111);
-  static const Color subTextColor =  Color(0xFF565656);
   static const Color dark2Color =  Color(0xff565656);
-  static const Color hintColor =  Color(0xFFB5B5B5);
   static const Color secendryColor =  Color(0xFFC4D3F6);
   static const Color greyColor =  Color(0xFFB5B5B5);
-  static  Color fillColor =  Color(0xFF5181F8).withOpacity(0.08);
-  static const Color dividerColor =  Color(0xFF555555);
-  static const Color shadowColor =  Color(0xFF2B2A2A);
-  static const Color bottomBarColor =  Color(0xFF343434);
 
   static BoxShadow shadow=BoxShadow(
     blurRadius: 4,
