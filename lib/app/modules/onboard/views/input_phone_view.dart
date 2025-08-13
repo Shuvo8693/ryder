@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ryder/app/routes/app_pages.dart';
 import 'package:ryder/common/app_color/app_colors.dart';
 import 'package:ryder/common/custom_appbar/custom_appbar.dart';
 import 'package:ryder/common/widgets/custom_button.dart';
@@ -274,7 +277,7 @@ class _PhoneInputScreenState extends State<PhoneInputScreen> {
               CustomButton(
                 height: 60.h,
                 onTap: () {
-                  // Handle continue action
+                  Get.toNamed(Routes.OTP);
                 },
                 text: 'Continue',
               ),
