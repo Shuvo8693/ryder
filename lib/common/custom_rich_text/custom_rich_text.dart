@@ -28,19 +28,23 @@ class CustomRichText extends StatelessWidget {
 
     for (int i = 0; i < clickableTexts.length; i++) {
       String clickableText = clickableTexts[i];
-      int index = remainingText.indexOf(clickableText);
+      int index = remainingText.indexOf(clickableText); // ===> find the index of clickable Text positions
+
+      print(remainingText); // first iteration will show full text and Second iteration will show remaining text after eliminate first portion of text.
 
       if (index != -1) {
         // Add text before clickable text
         if (index > 0) {
           spans.add(TextSpan(
-            text: remainingText.substring(0, index),
+            text: remainingText.substring(0, index), // Show text 0 to clickable Text index position
             style: normalTextStyle ?? const TextStyle(fontSize: 16, color: Colors.black),
           ));
+          print(remainingText);
+          print(spans);
         }
 
         // Add clickable text
-        spans.add(TextSpan(
+        spans.add( TextSpan(
           text: clickableText,
           style: clickableTextStyle ?? const TextStyle(
             fontSize: 16,
@@ -53,8 +57,10 @@ class CustomRichText extends StatelessWidget {
                 : null,
           ),
         );
+        print(clickableText.length);
         // Update remaining text
-        remainingText = remainingText.substring(index + clickableText.length);
+        remainingText = remainingText.substring(index + clickableText.length); //<==== Eliminate or substring to the first privacy policy text.
+        print(remainingText); //<=== remaining text will be here
       }
     }
 
