@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ryder/app/routes/app_pages.dart';
 import 'package:ryder/common/app_text_style/google_app_style.dart';
 import 'package:ryder/common/custom_appbar/custom_appbar.dart';
 import 'package:ryder/common/custom_rich_text/custom_rich_text.dart';
 import 'package:ryder/common/widgets/custom_button.dart';
 import 'package:ryder/common/widgets/custom_text_field.dart';
+
 
 
 class SignUpView extends StatefulWidget {
@@ -197,13 +199,15 @@ class _SignUpViewState extends State<SignUpView> {
 
                // const Spacer(), // Push button to bottom
 
+
                 SizedBox(height: 80.h),
                 // Continue Button - using your CustomButton or regular button
                 CustomButton(
                   height: 56.h,
                   onTap: () {
+                    Get.toNamed(Routes.UPDATECONFIRMATION);
                     if (_formKey.currentState!.validate() && _isAgreed) {
-                      Get.toNamed('/OTP');
+                      //Get.toNamed(Routes.UPDATECONFIRMATION);
                     } else if (!_isAgreed) {
                       Get.snackbar(
                         'Terms Required',

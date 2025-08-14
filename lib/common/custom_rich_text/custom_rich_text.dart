@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import '../app_text_style/google_app_style.dart';
+import '../app_text_style/google_styles.dart';
 
 class CustomRichText extends StatelessWidget {
   const CustomRichText({
