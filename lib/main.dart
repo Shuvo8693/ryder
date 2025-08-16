@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:ryder/common/themes/dark_theme.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:ryder/app/data/locale_controller.dart';
 
 import 'app/routes/app_pages.dart';
 import 'common/app_constant/app_constant.dart';
-import 'common/controller/localization_controller.dart';
 import 'common/controller/theme_controller.dart';
-import 'common/di/di.dart';
-import 'common/themes/light_theme.dart';
-import 'common/widgets/message.dart';
+import 'common/themes/dark_theme.dart';
+import 'l10n/app_localizations.dart';
+
 
 
 
@@ -19,28 +19,26 @@ import 'common/widgets/message.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   //Stripe.publishableKey = SKey.sPubTestKey;
-  Map<String, Map<String, String>> _languages = await init();
+  Get.put(LocaleController());
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown
   ]).then((_){
-    runApp(MyApp(
-      languages: _languages,
-    ));
+    runApp(MyApp());
   });
 
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key, required this.languages});
+  const MyApp({super.key});
 
-  final Map<String, Map<String, String>> languages;
 
   @override
   Widget build(BuildContext context) {
+    final localeController = Get.find<LocaleController>();
     return GetBuilder<ThemeController>(builder: (themeController) {
-      return GetBuilder<LocalizationController>(builder: (localizeController) {
-        return ScreenUtilInit(
+      return Obx(()=>
+         ScreenUtilInit(
             designSize: const Size(393, 852),
             minTextAdapt: true,
             splitScreenMode: true,
@@ -52,16 +50,22 @@ class MyApp extends StatelessWidget {
                 //theme: themeController.darkTheme ? dark(): light(),
                 theme: dark(context: context),
                 defaultTransition: Transition.topLevel,
-                locale: localizeController.locale,
-                translations: Messages(languages: languages),
+                // Official Flutter localization
+                localizationsDelegates:  [
+                  AppLocalizations.delegate,
+                  GlobalMaterialLocalizations.delegate,
+                  GlobalWidgetsLocalizations.delegate,
+                  GlobalCupertinoLocalizations.delegate,
+                ],
+                locale: localeController.locale,
                 fallbackLocale: Locale(AppConstants.languages[0].languageCode,
                     AppConstants.languages[0].countryCode),
                 transitionDuration: const Duration(milliseconds: 500),
                 getPages: AppPages.routes,
                 initialRoute: AppPages.INITIAL,
               );
-            });
-      });
+            }),
+      );
     });
   }
 }
