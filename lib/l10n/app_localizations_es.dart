@@ -59,7 +59,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get enter_your_code => 'Introduce tu código';
 
   @override
-  String get we_sent_code_to => 'Hemos enviado un código a +1 571-289-3329';
+  String get we_sent_code_to => 'Hemos enviado un código a ';
 
   @override
   String get please_enter_to_verify =>

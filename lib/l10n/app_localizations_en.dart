@@ -56,7 +56,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get enter_your_code => 'Enter Your Code';
 
   @override
-  String get we_sent_code_to => 'We’ve sent a code to +1 571-289-3329';
+  String get we_sent_code_to => 'We’ve sent a code to';
 
   @override
   String get please_enter_to_verify =>

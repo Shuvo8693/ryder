@@ -5,6 +5,7 @@ import 'package:ryder/app/routes/app_pages.dart';
 import 'package:ryder/common/app_text_style/google_app_style.dart';
 import 'package:ryder/common/custom_appbar/custom_appbar.dart';
 import 'package:ryder/common/custom_rich_text/custom_rich_text.dart';
+import 'package:ryder/common/localization_extension/localization_extension.dart';
 import 'package:ryder/common/widgets/custom_button.dart';
 import 'package:ryder/common/widgets/custom_text_field.dart';
 
@@ -26,6 +27,7 @@ class _SignUpViewState extends State<SignUpView> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return Scaffold(
       appBar: ReusableAppBar(showLogo: true),
       body: SingleChildScrollView(
@@ -38,7 +40,7 @@ class _SignUpViewState extends State<SignUpView> {
               children: [
                 // Title
                 Text(
-                  "Who's riding today?",
+                  l10n.who_is_riding_today,
                   style: GoogleFontStyles.h1(
                     color: Colors.white,
                     fontWeight: FontWeight.w600,
@@ -47,7 +49,7 @@ class _SignUpViewState extends State<SignUpView> {
                 SizedBox(height: 8.h),
                 // Description Text
                 Text(
-                  "Your driver will verify your name upon arrival",
+                  l10n.your_driver_will_verify_name,
                   style: GoogleFontStyles.h5(
                     color: Colors.white,
                   ),
@@ -63,7 +65,7 @@ class _SignUpViewState extends State<SignUpView> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'First Name',
+                            l10n.first_name,
                             style: GoogleFontStyles.h5(
                               color: Colors.white,
                             ),
@@ -75,7 +77,7 @@ class _SignUpViewState extends State<SignUpView> {
                             contentPaddingVertical: 16.h,
                             validator: (value) {
                               if (value == null || value.isEmpty) {
-                                return 'Please enter your first name';
+                                return l10n.please_enter_first_name;
                               }
                               return null;
                             },
@@ -90,7 +92,7 @@ class _SignUpViewState extends State<SignUpView> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Last Name',
+                            l10n.last_name,
                             style: GoogleFontStyles.h5(
                               color: Colors.white,
                             ),
@@ -102,7 +104,7 @@ class _SignUpViewState extends State<SignUpView> {
                             contentPaddingVertical: 16.h,
                             validator: (value) {
                               if (value == null || value.isEmpty) {
-                                return 'Please enter your last name';
+                                return l10n.please_enter_last_name;
                               }
                               return null;
                             },
@@ -119,7 +121,7 @@ class _SignUpViewState extends State<SignUpView> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Email',
+                      l10n.email,
                       style: GoogleFontStyles.h5(
                         color: Colors.white,
                       ),
@@ -169,8 +171,8 @@ class _SignUpViewState extends State<SignUpView> {
                     SizedBox(width: 12.w),
                     Expanded(
                       child: CustomRichText(
-                        normalText: "By continuing, I agree that Rydr may collect, use, and share the information I provide in accordance with the Privacy Policy. I also confirm that I have read, understood, and agree to the Terms & Conditions",
-                        clickableTexts: ["Privacy Policy", "Terms & Conditions"],
+                        normalText: l10n.terms_and_conditions,
+                        clickableTexts: [l10n.privacy_policy, l10n.terms_conditions],
                         maxLines: 5,
                         normalTextStyle: GoogleFontStyles.h6(
                           color: Colors.white,
@@ -210,15 +212,15 @@ class _SignUpViewState extends State<SignUpView> {
                       //Get.toNamed(Routes.UPDATECONFIRMATION);
                     } else if (!_isAgreed) {
                       Get.snackbar(
-                        'Terms Required',
-                        'Please agree to the Terms & Conditions to continue',
+                        l10n.terms_required,
+                        l10n.please_agree_terms,
                         backgroundColor: Colors.red.withOpacity(0.8),
                         colorText: Colors.white,
                         snackPosition: SnackPosition.BOTTOM,
                       );
                     }
                   },
-                  text: 'Continue',
+                  text: l10n.continueButton,
                 ),
                 SizedBox(height: 20.h), // Bottom padding
               ],

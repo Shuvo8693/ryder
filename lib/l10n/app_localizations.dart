@@ -193,7 +193,7 @@ abstract class AppLocalizations {
   /// Message indicating the phone number where the OTP was sent
   ///
   /// In en, this message translates to:
-  /// **'We’ve sent a code to +1 571-289-3329'**
+  /// **'We’ve sent a code to'**
   String get we_sent_code_to;
 
   /// Message instructing the user to enter the OTP code

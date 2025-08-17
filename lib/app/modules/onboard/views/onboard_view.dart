@@ -8,6 +8,7 @@ import 'package:ryder/common/app_color/app_colors.dart';
 import 'package:ryder/common/app_images/app_svg.dart';
 import 'package:ryder/common/custom_appbar/custom_appbar.dart';
 import 'package:ryder/common/custom_image_provider/custom_image_provider.dart';
+import 'package:ryder/common/localization_extension/localization_extension.dart';
 import 'package:ryder/common/widgets/custom_button.dart';
 
 
@@ -15,6 +16,7 @@ class OnboardView extends StatelessWidget {
   const OnboardView({super.key});
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return Scaffold(
       appBar: ReusableAppBar(showLogo: true),
       body: SafeArea(
@@ -30,18 +32,18 @@ class OnboardView extends StatelessWidget {
                 height: 60.h,
                   onTap: (){
                     Get.toNamed(Routes.INPUTPHONENUMBER);
-                  }, text: 'Get started'),
+                  }, text: l10n.get_started),
 
                SizedBox(height: 24.h),
 
               // Description text
                Text(
-                'Start Riding with Fare Price!',
+                 l10n.start_riding_with_fare_price,
                 style: GoogleFonts.inter(fontSize: 14,color: Colors.white),
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 8.h),
-              Text('Launch the rider app to begin\nyour journey!',
+              Text(l10n.launch_the_rider_app,
                 style: GoogleFonts.inter(fontSize: 14,color: AppColors.butterflyBoshColor),
                 textAlign: TextAlign.center,
               ),

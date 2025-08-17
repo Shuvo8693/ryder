@@ -83,7 +83,7 @@
     "description": "Heading text instructing the user to enter the OTP code"
   },
 
-  "we_sent_code_to": "We’ve sent a code to +1 571-289-3329",
+  "we_sent_code_to": "We’ve sent a code to",
   "@we_sent_code_to": {
     "description": "Message indicating the phone number where the OTP was sent"
   },

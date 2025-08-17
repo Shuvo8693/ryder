@@ -32,7 +32,7 @@ class _PhoneInputScreenState extends State<PhoneInputScreen> {
     {'name': 'United States', 'code': '+1', 'flag': '🇺🇸', 'locale': 'en_US'},
   ];
 
-  final List<String> languages = ['English', 'Français', 'Español'];
+ // final List<String> languages = ['English', 'Français', 'Español'];
 
   @override
   void dispose() {

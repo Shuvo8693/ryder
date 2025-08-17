@@ -10,10 +10,12 @@ import 'package:ryder/common/app_color/app_colors.dart';
 import 'package:ryder/common/app_text_style/google_app_style.dart';
 import 'package:ryder/common/app_text_style/style.dart';
 import 'package:ryder/common/custom_appbar/custom_appbar.dart';
+import 'package:ryder/common/localization_extension/localization_extension.dart';
 
 import 'package:ryder/common/widgets/custom_button.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:ryder/common/widgets/spacing.dart';
+import 'package:ryder/l10n/app_localizations.dart';
 
 import '../controllers/otp_controller.dart';
 
@@ -75,6 +77,7 @@ class _OtpViewState extends State<OtpView> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return Scaffold(
       appBar: ReusableAppBar(showLogo: true),
       body: Padding(
@@ -92,11 +95,11 @@ class _OtpViewState extends State<OtpView> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Enter Your Code',style: GoogleFontStyles.h1(fontWeight: FontWeight.w600),),
+                    Text(l10n.enter_your_code,style: GoogleFontStyles.h1(fontWeight: FontWeight.w600),),
                     verticalSpacing(8.h),
-                    Text("We’ve sent a code to +1 571-289-3329 ",style: GoogleFontStyles.h5(fontWeight: FontWeight.w600),),
+                    Text("${l10n.we_sent_code_to} +1 571-289-3329 ",style: GoogleFontStyles.h5(fontWeight: FontWeight.w600),),
                     verticalSpacing(8.h),
-                    Text("Please enter it below to verify your number ",style: GoogleFontStyles.h5(fontWeight: FontWeight.w600),),
+                    Text(l10n.please_enter_to_verify,style: GoogleFontStyles.h5(fontWeight: FontWeight.w600),),
                     verticalSpacing(30.h),
                     PinCodeTextField(
                       cursorColor: Colors.white,
@@ -126,7 +129,7 @@ class _OtpViewState extends State<OtpView> {
                       enableActiveFill: true,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Enter your pin code';
+                          return l10n.enter_your_pin_code;
                         }
                         return null;
                       },
@@ -147,7 +150,7 @@ class _OtpViewState extends State<OtpView> {
                              // await otpController.sendOtp(isResetPassword);
                             }
                           },
-                          text: 'Verify Now');
+                          text: l10n.verify_now);
                     }),
 
                     SizedBox(height: 35.h),
@@ -166,11 +169,11 @@ class _OtpViewState extends State<OtpView> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Text(
-                                  "Didn’t receive code? ",
+                                  l10n.did_not_receive_code,
                                   style: GoogleFontStyles.h4(),
                                 ),
                                 Text(
-                                  "Resend it",
+                                  l10n.resend_it,
                                   style: GoogleFontStyles.h4(color: Colors.blueAccent ),
                                 ),
                               ],
@@ -187,11 +190,11 @@ class _OtpViewState extends State<OtpView> {
     );
   }
 
-  RichText buildOtpSupportText({String? email}) {
+  RichText buildOtpSupportText({String? email,AppLocalizations? l10n}) {
     return RichText(
       textAlign: TextAlign.center,
       text: TextSpan(
-        text: "We have sent a verification email to ",
+        text: l10n?.we_sent_code_to,
         style: AppStyles.h4(color: AppColors.gray), // Use default text style
         children: [
           TextSpan(
