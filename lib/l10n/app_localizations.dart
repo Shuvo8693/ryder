@@ -99,6 +99,216 @@ abstract class AppLocalizations {
     Locale('es'),
     Locale('fr'),
   ];
+
+  /// Text on the button that begins the process
+  ///
+  /// In en, this message translates to:
+  /// **'Get started'**
+  String get get_started;
+
+  /// Description text encouraging the user to start riding with a fair price
+  ///
+  /// In en, this message translates to:
+  /// **'Start Riding with Fare Price!'**
+  String get start_riding_with_fare_price;
+
+  /// Instruction to launch the rider app to begin the user's journey
+  ///
+  /// In en, this message translates to:
+  /// **'Launch the rider app to begin\nyour journey!'**
+  String get launch_the_rider_app;
+
+  /// Title for the language selection
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get language;
+
+  /// Text shown when the user selects a language
+  ///
+  /// In en, this message translates to:
+  /// **'Select Language'**
+  String get select_language;
+
+  /// Heading text shown on the phone input screen
+  ///
+  /// In en, this message translates to:
+  /// **'Let\'s Get Started!'**
+  String get lets_get_started;
+
+  /// Subheading text shown under the title in the phone input screen
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your phone number to begin'**
+  String get enter_phone_number;
+
+  /// Placeholder for the phone number input field
+  ///
+  /// In en, this message translates to:
+  /// **'(571) 289-3329'**
+  String get phone_number_hint;
+
+  /// Text on the button that proceeds to the next step
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get continueButton;
+
+  /// Text for the country selector button
+  ///
+  /// In en, this message translates to:
+  /// **'Select Country'**
+  String get country_selector;
+
+  /// Title text encouraging users to stay updated
+  ///
+  /// In en, this message translates to:
+  /// **'Never miss an update'**
+  String get never_miss_an_update;
+
+  /// Description explaining the benefits of staying updated with real-time driver updates
+  ///
+  /// In en, this message translates to:
+  /// **'Receive real-time driver updates, along with exclusive deals and tailored discounts, all designed to make your journey smoother and more rewarding. Stay informed and enjoy the benefits every time you ride!'**
+  String get receive_real_time_driver_updates;
+
+  /// Button text to allow notifications
+  ///
+  /// In en, this message translates to:
+  /// **'Allow'**
+  String get allow;
+
+  /// Description for the image shown on the screen related to the app update
+  ///
+  /// In en, this message translates to:
+  /// **'Image representing app updates'**
+  String get app_update_image_description;
+
+  /// Heading text instructing the user to enter the OTP code
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Your Code'**
+  String get enter_your_code;
+
+  /// Message indicating the phone number where the OTP was sent
+  ///
+  /// In en, this message translates to:
+  /// **'We’ve sent a code to +1 571-289-3329'**
+  String get we_sent_code_to;
+
+  /// Message instructing the user to enter the OTP code
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter it below to verify your number'**
+  String get please_enter_to_verify;
+
+  /// Error message when the OTP field is left empty
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your pin code'**
+  String get enter_your_pin_code;
+
+  /// Text on the button to verify the OTP
+  ///
+  /// In en, this message translates to:
+  /// **'Verify Now'**
+  String get verify_now;
+
+  /// Message shown to users who haven't received the OTP yet
+  ///
+  /// In en, this message translates to:
+  /// **'Didn’t receive code?'**
+  String get did_not_receive_code;
+
+  /// Text for the button to resend the OTP
+  ///
+  /// In en, this message translates to:
+  /// **'Resend it'**
+  String get resend_it;
+
+  /// The time format when the OTP timer expires
+  ///
+  /// In en, this message translates to:
+  /// **'00:00'**
+  String get timer_expired;
+
+  /// Title asking who's riding
+  ///
+  /// In en, this message translates to:
+  /// **'Who\'s riding today?'**
+  String get who_is_riding_today;
+
+  /// Description text regarding driver verification
+  ///
+  /// In en, this message translates to:
+  /// **'Your driver will verify your name upon arrival'**
+  String get your_driver_will_verify_name;
+
+  /// Label for first name input field
+  ///
+  /// In en, this message translates to:
+  /// **'First Name'**
+  String get first_name;
+
+  /// Label for last name input field
+  ///
+  /// In en, this message translates to:
+  /// **'Last Name'**
+  String get last_name;
+
+  /// Label for email input field
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get email;
+
+  /// Error message when first name is empty
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your first name'**
+  String get please_enter_first_name;
+
+  /// Error message when last name is empty
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your last name'**
+  String get please_enter_last_name;
+
+  /// Error message when email is empty
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your email'**
+  String get please_enter_email;
+
+  /// Text showing terms and conditions agreement
+  ///
+  /// In en, this message translates to:
+  /// **'By continuing, I agree that Rydr may collect, use, and share the information I provide in accordance with the Privacy Policy. I also confirm that I have read, understood, and agree to the Terms & Conditions'**
+  String get terms_and_conditions;
+
+  /// Clickable text for privacy policy
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy Policy'**
+  String get privacy_policy;
+
+  /// Clickable text for terms and conditions
+  ///
+  /// In en, this message translates to:
+  /// **'Terms & Conditions'**
+  String get terms_conditions;
+
+  /// Title for snackbar when terms are not agreed
+  ///
+  /// In en, this message translates to:
+  /// **'Terms Required'**
+  String get terms_required;
+
+  /// Message for snackbar when user hasn't agreed to terms
+  ///
+  /// In en, this message translates to:
+  /// **'Please agree to the Terms & Conditions to continue'**
+  String get please_agree_terms;
 }
 
 class _AppLocalizationsDelegate

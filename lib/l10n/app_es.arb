@@ -1,3 +1,53 @@
 {
-  "@@locale": "es"
+  "@@locale": "es",
+  " ====lets_Get_startedComment==== ": " ================ Lets_Get_started_view ======= ",
+  "get_started": "Comenzar",
+
+  "start_riding_with_fare_price": "¡Comienza a conducir con un precio justo!",
+
+  "launch_the_rider_app": "Lanza la aplicación del conductor para comenzar\n¡tu viaje!",
+
+  " ====phone_inputComment==== ": " ================ phone_input_view ======= ",
+
+  "language": "Idioma",
+  "select_language": "Seleccionar idioma",
+  "lets_get_started": "¡Comencemos!",
+  "enter_phone_number": "Introduce tu número de teléfono para comenzar",
+  "phone_number_hint": "(571) 289-3329",
+  "continueButton": "Continúa",
+  "country_selector": "Seleccionar país",
+
+  " ===update_confirmationComment==== ": " ================ Update_confirmation_view ======= ",
+
+  "never_miss_an_update": "Nunca te pierdas una actualización",
+  "receive_real_time_driver_updates": "Recibe actualizaciones en tiempo real del conductor, junto con ofertas exclusivas y descuentos personalizados, todo diseñado para hacer tu viaje más suave y gratificante. ¡Mantente informado y disfruta de los beneficios cada vez que viajes!",
+  "allow": "Permitir",
+  "app_update_image_description": "Imagen representando las actualizaciones de la aplicación",
+
+  " ===otpComment==== ": " ================ Otp_view ======= ",
+
+  "enter_your_code": "Introduce tu código",
+  "we_sent_code_to": "Hemos enviado un código a +1 571-289-3329",
+  "please_enter_to_verify": "Por favor, ingrésalo a continuación para verificar tu número",
+  "enter_your_pin_code": "Ingresa tu código PIN",
+  "verify_now": "Verificar ahora",
+  "did_not_receive_code": "¿No recibiste el código?",
+  "resend_it": "Reenviar",
+  "timer_expired": "00:00",
+
+  "=== signUpComment ====": " ================ SignUp_view ======= ",
+
+  "who_is_riding_today": "¿Quién está conduciendo hoy?",
+  "your_driver_will_verify_name": "Tu conductor verificará tu nombre a la llegada",
+  "first_name": "Nombre",
+  "last_name": "Apellido",
+  "email": "Correo electrónico",
+  "please_enter_first_name": "Por favor, ingresa tu nombre",
+  "please_enter_last_name": "Por favor, ingresa tu apellido",
+  "please_enter_email": "Por favor, ingresa tu correo electrónico",
+  "terms_and_conditions": "Al continuar, acepto que Rydr recopile, use y comparta la información que proporciono de acuerdo con la Política de privacidad. También confirmo que he leído, comprendido y acepto los Términos y Condiciones",
+  "privacy_policy": "Política de privacidad",
+  "terms_conditions": "Términos y condiciones",
+  "terms_required": "Términos requeridos",
+  "please_agree_terms": "Por favor, acepta los Términos y Condiciones para continuar"
 }

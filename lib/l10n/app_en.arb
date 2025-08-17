@@ -1,3 +1,187 @@
+
 {
-  "@@locale": "en"
+  "@@locale": "en",
+
+  "get_started": "Get started",
+  "@get_started": {
+    "description": "Text on the button that begins the process"
+  },
+
+  "start_riding_with_fare_price": "Start Riding with Fare Price!",
+  "@start_riding_with_fare_price": {
+    "description": "Description text encouraging the user to start riding with a fair price"
+  },
+
+  "launch_the_rider_app": "Launch the rider app to begin\nyour journey!",
+  "@launch_the_rider_app": {
+    "description": "Instruction to launch the rider app to begin the user's journey"
+  },
+
+
+
+  "language": "Language",
+  "@language": {
+    "description": "Title for the language selection"
+  },
+
+  "select_language": "Select Language",
+  "@select_language": {
+    "description": "Text shown when the user selects a language"
+  },
+
+  "lets_get_started": "Let's Get Started!",
+  "@lets_get_started": {
+    "description": "Heading text shown on the phone input screen"
+  },
+
+  "enter_phone_number": "Enter your phone number to begin",
+  "@enter_phone_number": {
+    "description": "Subheading text shown under the title in the phone input screen"
+  },
+
+  "phone_number_hint": "(571) 289-3329",
+  "@phone_number_hint": {
+    "description": "Placeholder for the phone number input field"
+  },
+
+  "continueButton": "Continue",
+  "@continueButton": {
+    "description": "Text on the button that proceeds to the next step"
+  },
+
+  "country_selector": "Select Country",
+  "@country_selector": {
+    "description": "Text for the country selector button"
+  },
+
+
+
+  "never_miss_an_update": "Never miss an update",
+  "@never_miss_an_update": {
+    "description": "Title text encouraging users to stay updated"
+  },
+
+  "receive_real_time_driver_updates": "Receive real-time driver updates, along with exclusive deals and tailored discounts, all designed to make your journey smoother and more rewarding. Stay informed and enjoy the benefits every time you ride!",
+  "@receive_real_time_driver_updates": {
+    "description": "Description explaining the benefits of staying updated with real-time driver updates"
+  },
+
+  "allow": "Allow",
+  "@allow": {
+    "description": "Button text to allow notifications"
+  },
+
+  "app_update_image_description": "Image representing app updates",
+  "@app_update_image_description": {
+    "description": "Description for the image shown on the screen related to the app update"
+  },
+
+
+
+  "enter_your_code": "Enter Your Code",
+  "@enter_your_code": {
+    "description": "Heading text instructing the user to enter the OTP code"
+  },
+
+  "we_sent_code_to": "We’ve sent a code to +1 571-289-3329",
+  "@we_sent_code_to": {
+    "description": "Message indicating the phone number where the OTP was sent"
+  },
+
+  "please_enter_to_verify": "Please enter it below to verify your number",
+  "@please_enter_to_verify": {
+    "description": "Message instructing the user to enter the OTP code"
+  },
+
+  "enter_your_pin_code": "Enter your pin code",
+  "@enter_your_pin_code": {
+    "description": "Error message when the OTP field is left empty"
+  },
+
+  "verify_now": "Verify Now",
+  "@verify_now": {
+    "description": "Text on the button to verify the OTP"
+  },
+
+  "did_not_receive_code": "Didn’t receive code?",
+  "@did_not_receive_code": {
+    "description": "Message shown to users who haven't received the OTP yet"
+  },
+
+  "resend_it": "Resend it",
+  "@resend_it": {
+    "description": "Text for the button to resend the OTP"
+  },
+
+  "timer_expired": "00:00",
+  "@timer_expired": {
+    "description": "The time format when the OTP timer expires"
+  },
+
+
+
+  "who_is_riding_today": "Who's riding today?",
+  "@who_is_riding_today": {
+    "description": "Title asking who's riding"
+  },
+
+  "your_driver_will_verify_name": "Your driver will verify your name upon arrival",
+  "@your_driver_will_verify_name": {
+    "description": "Description text regarding driver verification"
+  },
+
+  "first_name": "First Name",
+  "@first_name": {
+    "description": "Label for first name input field"
+  },
+
+  "last_name": "Last Name",
+  "@last_name": {
+    "description": "Label for last name input field"
+  },
+
+  "email": "Email",
+  "@email": {
+    "description": "Label for email input field"
+  },
+
+  "please_enter_first_name": "Please enter your first name",
+  "@please_enter_first_name": {
+    "description": "Error message when first name is empty"
+  },
+
+  "please_enter_last_name": "Please enter your last name",
+  "@please_enter_last_name": {
+    "description": "Error message when last name is empty"
+  },
+
+  "please_enter_email": "Please enter your email",
+  "@please_enter_email": {
+    "description": "Error message when email is empty"
+  },
+
+  "terms_and_conditions": "By continuing, I agree that Rydr may collect, use, and share the information I provide in accordance with the Privacy Policy. I also confirm that I have read, understood, and agree to the Terms & Conditions",
+  "@terms_and_conditions": {
+    "description": "Text showing terms and conditions agreement"
+  },
+
+  "privacy_policy": "Privacy Policy",
+  "@privacy_policy": {
+    "description": "Clickable text for privacy policy"
+  },
+
+  "terms_conditions": "Terms & Conditions",
+  "@terms_conditions": {
+    "description": "Clickable text for terms and conditions"
+  },
+
+  "terms_required": "Terms Required",
+  "@terms_required": {
+    "description": "Title for snackbar when terms are not agreed"
+  },
+
+  "please_agree_terms": "Please agree to the Terms & Conditions to continue",
+  "@please_agree_terms": {
+    "description": "Message for snackbar when user hasn't agreed to terms"
+  }
 }

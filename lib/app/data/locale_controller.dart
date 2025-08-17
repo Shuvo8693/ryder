@@ -5,9 +5,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class LocaleController extends GetxController {
   static const List<Locale> supportedLocales = [
-    Locale('en', 'US'),
-    Locale('es', 'ES'),
-    Locale('fr', 'FR'),
+    Locale('en', 'English'),
+    Locale('es', 'Español'),
+    Locale('fr', 'Français'),
   ];
 
   final _locale = const Locale('en', 'US').obs;

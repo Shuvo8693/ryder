@@ -36,12 +36,12 @@ class OnboardView extends StatelessWidget {
 
               // Description text
                Text(
-                'Start Driving and Keep 80% of Each Fare!',
+                'Start Riding with Fare Price!',
                 style: GoogleFonts.inter(fontSize: 14,color: Colors.white),
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 8.h),
-              Text('Launch the driver app to begin\nyour journey!',
+              Text('Launch the rider app to begin\nyour journey!',
                 style: GoogleFonts.inter(fontSize: 14,color: AppColors.butterflyBoshColor),
                 textAlign: TextAlign.center,
               ),

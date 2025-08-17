@@ -3,9 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ryder/app/data/locale_controller.dart';
 import 'package:ryder/app/routes/app_pages.dart';
 import 'package:ryder/common/app_color/app_colors.dart';
 import 'package:ryder/common/custom_appbar/custom_appbar.dart';
+import 'package:ryder/common/localization_extension/localization_extension.dart';
 import 'package:ryder/common/widgets/custom_button.dart';
 import 'package:ryder/common/widgets/custom_text_field.dart';
 
@@ -23,6 +25,7 @@ class _PhoneInputScreenState extends State<PhoneInputScreen> {
   bool showLanguageOptions = false;
   String selectedLanguage = 'English';
   TextEditingController phoneController = TextEditingController();
+  final LocaleController localeController = Get.put(LocaleController());
 
   final List<Map<String, String>> countries = [
     {'name': 'Canada', 'code': '+1', 'flag': '🇨🇦', 'locale': 'en_CA'},
@@ -59,6 +62,7 @@ class _PhoneInputScreenState extends State<PhoneInputScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return Scaffold(
       appBar: ReusableAppBar(showLogo: true),
       body: SingleChildScrollView(
@@ -131,19 +135,20 @@ class _PhoneInputScreenState extends State<PhoneInputScreen> {
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: languages.map((language) {
-                      bool isSelected = selectedLanguage == language;
+                    children: LocaleController.supportedLocales.map((locale) {
+                      bool isSelected = selectedLanguage == locale.countryCode;
                       return GestureDetector(
                         onTap: () {
+                          localeController.setLocale(locale);
                           setState(() {
-                            selectedLanguage = language;
+                            selectedLanguage = locale.countryCode!;
                             showLanguageOptions = false;
                           });
                         },
                         child: Padding(
                           padding: EdgeInsets.all(4.sp),
                           child: Text(
-                            language,
+                            locale.countryCode!,
                             style: GoogleFonts.inter(
                               fontSize: 14.sp,
                               color: Colors.white,
@@ -164,7 +169,7 @@ class _PhoneInputScreenState extends State<PhoneInputScreen> {
                 child: Column(
                   children: [
                     Text(
-                      "Let's Get Started!",
+                      l10n.lets_get_started,
                       style: GoogleFonts.inter(
                         fontSize: 28.sp,
                         fontWeight: FontWeight.bold,
@@ -173,7 +178,7 @@ class _PhoneInputScreenState extends State<PhoneInputScreen> {
                     ),
                     SizedBox(height: 8.h),
                     Text(
-                      'Enter your phone number to begin',
+                      l10n.enter_phone_number,
                       style: GoogleFonts.inter(
                         fontSize: 16.sp,
                         color: Colors.white.withValues(alpha: 0.7),
@@ -242,16 +247,6 @@ class _PhoneInputScreenState extends State<PhoneInputScreen> {
                             fontSize: 16.sp,
                             color: Colors.white.withOpacity(0.5),
                           ),
-                          fillColor: AppColors.buttonBackgroundColor,
-                          filled: true,
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(80.r),
-                            borderSide: BorderSide(color: AppColors.buttonBackgroundColor, width: 2),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(80.r),
-                            borderSide: BorderSide(color: Colors.white.withOpacity(0.3)),
-                          ),
                           contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
                         ),
                         keyboardType: TextInputType.phone,
@@ -279,7 +274,7 @@ class _PhoneInputScreenState extends State<PhoneInputScreen> {
                 onTap: () {
                   Get.toNamed(Routes.OTP);
                 },
-                text: 'Continue',
+                text: l10n.continueButton,
               ),
               SizedBox(height: 30.h),
             ],
