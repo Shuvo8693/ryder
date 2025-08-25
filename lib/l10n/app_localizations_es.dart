@@ -121,4 +121,24 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get please_agree_terms =>
       'Por favor, acepta los Términos y Condiciones para continuar';
+
+  @override
+  String get where_are_you_headed => '¿A dónde te diriges?';
+
+  @override
+  String good_morning_user(String userName) {
+    return 'Buenos días, $userName';
+  }
+
+  @override
+  String get recent_rides => 'Viajes Recientes';
+
+  @override
+  String get saved => 'Guardados';
+
+  @override
+  String get airport => 'Aeropuerto';
+
+  @override
+  String get attraction => 'Atracción';
 }

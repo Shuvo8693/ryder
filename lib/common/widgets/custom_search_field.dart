@@ -24,7 +24,7 @@ class CustomSearchField extends StatelessWidget {
       children: [
         Expanded(
           child: CustomTextField(
-            filColor:fillColor?? AppColors.fillColor,
+            fillColor:fillColor?? AppColors.fillColor,
             contentPaddingVertical: 18.h,
             prefixIcon: Padding(
               padding:  EdgeInsets.all(8.0.sp),
@@ -46,7 +46,7 @@ class CustomSearchField extends StatelessWidget {
             ),
             hintText: 'Search...',
             controller: searchCtrl,
-            onChange: onChanged,
+            onChanged: onChanged,
           ),
         ),
       ],

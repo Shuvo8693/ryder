@@ -309,6 +309,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Please agree to the Terms & Conditions to continue'**
   String get please_agree_terms;
+
+  /// Placeholder text for the destination search input field
+  ///
+  /// In en, this message translates to:
+  /// **'Where are you headed?'**
+  String get where_are_you_headed;
+
+  /// Morning greeting message displayed to the user
+  ///
+  /// In en, this message translates to:
+  /// **'Good Morning, {userName}'**
+  String good_morning_user(String userName);
+
+  /// Tab label for recent rides section
+  ///
+  /// In en, this message translates to:
+  /// **'Recent Rides'**
+  String get recent_rides;
+
+  /// Tab label for saved locations section
+  ///
+  /// In en, this message translates to:
+  /// **'Saved'**
+  String get saved;
+
+  /// Tab label for airport locations section
+  ///
+  /// In en, this message translates to:
+  /// **'Airport'**
+  String get airport;
+
+  /// Tab label for attraction locations section
+  ///
+  /// In en, this message translates to:
+  /// **'Attraction'**
+  String get attraction;
 }
 
 class _AppLocalizationsDelegate

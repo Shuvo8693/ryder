@@ -183,5 +183,42 @@
   "please_agree_terms": "Please agree to the Terms & Conditions to continue",
   "@please_agree_terms": {
     "description": "Message for snackbar when user hasn't agreed to terms"
+  },
+
+
+  "where_are_you_headed": "Where are you headed?",
+  "@where_are_you_headed": {
+    "description": "Placeholder text for the destination search input field"
+  },
+
+  "good_morning_user": "Good Morning, {userName}",
+  "@good_morning_user": {
+    "description": "Morning greeting message displayed to the user",
+    "placeholders": {
+      "userName": {
+        "type": "String",
+        "description": "The user's name"
+      }
+    }
+  },
+
+  "recent_rides": "Recent Rides",
+  "@recent_rides": {
+    "description": "Tab label for recent rides section"
+  },
+
+  "saved": "Saved",
+  "@saved": {
+    "description": "Tab label for saved locations section"
+  },
+
+  "airport": "Airport",
+  "@airport": {
+    "description": "Tab label for airport locations section"
+  },
+
+  "attraction": "Attraction",
+  "@attraction": {
+    "description": "Tab label for attraction locations section"
   }
 }

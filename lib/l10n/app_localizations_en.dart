@@ -118,4 +118,24 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get please_agree_terms =>
       'Please agree to the Terms & Conditions to continue';
+
+  @override
+  String get where_are_you_headed => 'Where are you headed?';
+
+  @override
+  String good_morning_user(String userName) {
+    return 'Good Morning, $userName';
+  }
+
+  @override
+  String get recent_rides => 'Recent Rides';
+
+  @override
+  String get saved => 'Saved';
+
+  @override
+  String get airport => 'Airport';
+
+  @override
+  String get attraction => 'Attraction';
 }

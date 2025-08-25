@@ -49,5 +49,19 @@
   "privacy_policy": "Política de privacidad",
   "terms_conditions": "Términos y condiciones",
   "terms_required": "Términos requeridos",
-  "please_agree_terms": "Por favor, acepta los Términos y Condiciones para continuar"
+  "please_agree_terms": "Por favor, acepta los Términos y Condiciones para continuar",
+
+
+
+  "where_are_you_headed": "¿A dónde te diriges?",
+
+  "good_morning_user": "Buenos días, {userName}",
+
+  "recent_rides": "Viajes Recientes",
+
+  "saved": "Guardados",
+
+  "airport": "Aeropuerto",
+
+  "attraction": "Atracción"
 }
