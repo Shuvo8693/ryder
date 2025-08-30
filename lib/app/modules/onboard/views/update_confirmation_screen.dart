@@ -32,7 +32,6 @@ class UpdateConfirmationScreen extends StatelessWidget {
                     style: GoogleFontStyles.h2(
                       fontWeight: FontWeight.w600,
                     ),
-
                   ),
 
                   SizedBox(height: 12.h),

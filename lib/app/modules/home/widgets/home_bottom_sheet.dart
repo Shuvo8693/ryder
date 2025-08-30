@@ -4,21 +4,41 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:ryder/app/modules/home/widgets/tab_bar_items.dart';
 import 'package:ryder/common/localization_extension/localization_extension.dart';
 import 'package:ryder/common/widgets/custom_text_field.dart';
+import 'package:ryder/common/widgets/custom_textbutton_with_icon.dart';
 
-
-class BottomSheetWidget extends StatefulWidget {
+class HomeBottomSheet extends StatefulWidget {
   final Function(LatLng, String)? onLocationSelected;
+  final bool isModal;
 
-  const BottomSheetWidget({
+  const HomeBottomSheet({
     super.key,
     this.onLocationSelected,
+    this.isModal = false,
   });
 
   @override
-  State<BottomSheetWidget> createState() => _BottomSheetWidgetState();
+  State<HomeBottomSheet> createState() => _HomeBottomSheetState();
+
+  // Static method to show as modal bottom sheet
+  static Future<void> showModal({
+    required BuildContext context,
+    Function(LatLng, String)? onLocationSelected,
+  }) {
+    return showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      enableDrag: true,
+      builder: (context) => HomeBottomSheet(
+        onLocationSelected: onLocationSelected,
+        isModal: true,
+      ),
+    );
+  }
 }
 
-class _BottomSheetWidgetState extends State<BottomSheetWidget> with SingleTickerProviderStateMixin {
+class _HomeBottomSheetState extends State<HomeBottomSheet>
+    with SingleTickerProviderStateMixin {
   late TabController _tabController;
   final TextEditingController _editingController = TextEditingController();
 
@@ -31,20 +51,47 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> with SingleTicker
   @override
   void dispose() {
     _tabController.dispose();
+    _editingController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
+
+    if (widget.isModal) {
+      // Modal bottom sheet version with DraggableScrollableSheet
+      return DraggableScrollableSheet(
+        initialChildSize: 0.54,
+        expand: true,
+        minChildSize: 0.3,
+        maxChildSize: 0.9,
+        builder: (context, scrollController) {
+          return _buildContent(context, l10n);
+        },
+      );
+    } else {
+      // Positioned widget version
+      return _buildContent(context, l10n);
+    }
+  }
+
+  Widget _buildContent(BuildContext context, dynamic l10n) {
     return Container(
-      height: 380.h,
+      height: widget.isModal ? null : 380.h,
       decoration: BoxDecoration(
         color: Colors.black,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(20.r),
           topRight: Radius.circular(20.r),
         ),
+        boxShadow: widget.isModal ? null : [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.3),
+            blurRadius: 10,
+            offset: const Offset(0, -5),
+          ),
+        ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -70,11 +117,11 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> with SingleTicker
               hintText: l10n.where_are_you_headed,
               prefixIcon: Padding(
                 padding: EdgeInsets.all(8.0.sp),
-                child: Icon(Icons.search),
+                child: const Icon(Icons.search),
               ),
               suffixIcon: Padding(
-                padding:  EdgeInsets.all(8.0.sp),
-                child: Icon(Icons.calendar_today_outlined),
+                padding: EdgeInsets.all(8.0.sp),
+                child: const Icon(Icons.calendar_today_outlined),
               ),
               controller: _editingController,
             ),
@@ -148,18 +195,18 @@ class _BottomSheetWidgetState extends State<BottomSheetWidget> with SingleTicker
       ),
     );
   }
+}
 
-  Widget _buildTabItem(String text) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 6.h),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20.r),
-        border: Border.all(
-          color: Colors.grey[600]!,
-          width: 1,
-        ),
+Widget _buildTabItem(String text) {
+  return Container(
+    padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 6.h),
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(20.r),
+      border: Border.all(
+        color: Colors.grey[600]!,
+        width: 1,
       ),
-      child: Text(text),
-    );
-  }
+    ),
+    child: Text(text),
+  );
 }

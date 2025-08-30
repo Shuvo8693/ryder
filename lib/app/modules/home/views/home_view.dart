@@ -79,30 +79,53 @@ class _HomeViewState extends State<HomeView> {
           ),
 
           /// Bottom Sheet with TabBarView
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: BottomSheetWidget(
-              onLocationSelected: (LatLng location, String title) {
-                // Navigate to selected location on map
-                _mapKey.currentState?.animateToLocation(location, zoom: 17.0);
+          // Positioned(
+          //   bottom: 0,
+          //   left: 0,
+          //   right: 0,
+          //   child: HomeBottomSheet(
+          //     isModal: true,
+          //     onLocationSelected: (LatLng location, String title) {
+          //       // Navigate to selected location on map
+          //       _mapKey.currentState?.animateToLocation(location, zoom: 17.0);
+          //
+          //       // Optionally add a marker for the destination
+          //       setState(() {
+          //         _carMarkers.add(
+          //           Marker(
+          //             markerId: MarkerId('destination'),
+          //             position: location,
+          //             infoWindow: InfoWindow(title: title),
+          //             icon: BitmapDescriptor.defaultMarkerWithHue(
+          //               BitmapDescriptor.hueGreen,
+          //             ),
+          //           ),
+          //         );
+          //       });
+          //     },
+          //   ),
+          // ),
 
-                // Optionally add a marker for the destination
-                setState(() {
-                  _carMarkers.add(
-                    Marker(
-                      markerId: MarkerId('destination'),
-                      position: location,
-                      infoWindow: InfoWindow(title: title),
-                      icon: BitmapDescriptor.defaultMarkerWithHue(
-                        BitmapDescriptor.hueGreen,
-                      ),
+          HomeBottomSheet(
+            isModal: true,
+            onLocationSelected: (LatLng location, String title) {
+              // Navigate to selected location on map
+              _mapKey.currentState?.animateToLocation(location, zoom: 17.0);
+
+              // Optionally add a marker for the destination
+              setState(() {
+                _carMarkers.add(
+                  Marker(
+                    markerId: MarkerId('destination'),
+                    position: location,
+                    infoWindow: InfoWindow(title: title),
+                    icon: BitmapDescriptor.defaultMarkerWithHue(
+                      BitmapDescriptor.hueGreen,
                     ),
-                  );
-                });
-              },
-            ),
+                  ),
+                );
+              });
+            },
           ),
         ],
       ),

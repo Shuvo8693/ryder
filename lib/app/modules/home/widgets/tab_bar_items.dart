@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:ryder/app/modules/home/views/home_view.dart';
+import 'package:ryder/common/widgets/custom_textbutton_with_icon.dart';
 
 
 // Saved Locations Tab with location data
@@ -39,22 +40,35 @@ class SavedLocationsTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
-      itemCount: savedLocations.length,
-      itemBuilder: (context, index) {
-        final location = savedLocations[index];
-        return GestureDetector(
-          onTap: () {
-            onLocationTap?.call(location.position, location.title);
-          },
-          child: _buildLocationItem(
-            icon: location.icon,
-            title: location.title,
-            subtitle: location.subtitle,
+    return Column(
+      children: [
+        Expanded(
+          flex: 3,
+          child: ListView.builder(
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
+            itemCount: savedLocations.length,
+            itemBuilder: (context, index) {
+              final location = savedLocations[index];
+              return GestureDetector(
+                onTap: () {
+                  onLocationTap?.call(location.position, location.title);
+                },
+                child: _buildLocationItem(
+                  icon: location.icon,
+                  title: location.title,
+                  subtitle: location.subtitle,
+                ),
+              );
+            },
           ),
-        );
-      },
+        ),
+        Expanded(
+          flex: 1,
+          child: CustomTextButtonWithIcon(
+            onTap: (){  }, text: 'Add new place', icon: Icon(Icons.add),
+          ),
+        )
+      ],
     );
   }
 

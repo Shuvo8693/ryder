@@ -35,6 +35,7 @@ class CustomTextButtonWithIcon extends StatelessWidget {
       child: TextButton.icon(
         onPressed: loading ? null : onTap, // Disable button if loading
         style: TextButton.styleFrom(
+          foregroundColor:  Colors.white,
           minimumSize: Size(width ?? Get.width, height ?? 53.h),
           backgroundColor: color ?? Colors.transparent, // You can customize this
         ),
@@ -53,7 +54,7 @@ class CustomTextButtonWithIcon extends StatelessWidget {
                       textStyle ??
                       TextStyle(
                         fontWeight: FontWeight.w500,
-                        color: Colors.black,
+                       color: Colors.white,
                         letterSpacing: 1,
                       ),
                 ),
