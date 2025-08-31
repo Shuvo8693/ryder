@@ -201,7 +201,7 @@ class _PhoneInputScreenState extends State<PhoneInputScreen> {
                     child: Container(
                       padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 16.h),
                       decoration: BoxDecoration(
-                        color:  AppColors.buttonBackgroundColor,
+                        color:  AppColors.secenderyAppColor,
                         shape: BoxShape.rectangle, // Default shape
                         borderRadius: BorderRadius.circular(80.r),
                       ),

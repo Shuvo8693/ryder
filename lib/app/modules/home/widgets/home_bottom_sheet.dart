@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:ryder/app/modules/home/views/set_trip.dart';
 import 'package:ryder/app/modules/home/widgets/tab_bar_items.dart';
+import 'package:ryder/app/modules/home/widgets/trip_set_search_widgets.dart';
 import 'package:ryder/common/localization_extension/localization_extension.dart';
 import 'package:ryder/common/widgets/custom_text_field.dart';
 import 'package:ryder/common/widgets/custom_textbutton_with_icon.dart';
@@ -112,18 +114,16 @@ class _HomeBottomSheetState extends State<HomeBottomSheet>
           // Search Bar
           Padding(
             padding: EdgeInsets.all(16.w),
-            child: CustomTextField(
-              contentPaddingVertical: 18.h,
-              hintText: l10n.where_are_you_headed,
-              prefixIcon: Padding(
-                padding: EdgeInsets.all(8.0.sp),
-                child: const Icon(Icons.search),
-              ),
-              suffixIcon: Padding(
-                padding: EdgeInsets.all(8.0.sp),
-                child: const Icon(Icons.calendar_today_outlined),
-              ),
-              controller: _editingController,
+            child: TripSetSearchWidget(
+              onSearchTap: () {
+                // Handle search tap - open location picker modal
+                print('Search tapped');
+                showSetTripModalSheet(context);
+              },
+              onScheduleTap: () {
+                // Handle schedule tap - open date/time picker
+                print('Schedule tapped');
+              },
             ),
           ),
 
@@ -194,6 +194,21 @@ class _HomeBottomSheetState extends State<HomeBottomSheet>
         ],
       ),
     );
+  }
+
+  // Helper function to show the modal
+  void showSetTripModalSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) => const SetTripSheetItem(),
+    ).then((selectedLocation) {
+      if (selectedLocation != null) {
+        // Handle the selected location
+        print('Selected location: $selectedLocation');
+      }
+    });
   }
 }
 

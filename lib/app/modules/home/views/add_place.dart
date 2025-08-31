@@ -143,9 +143,7 @@ class _AddPlaceViewState extends State<AddPlaceView> {
                 ),
               ),
             ),
-
             Spacer(),
-
             // Save Button
             Padding(
               padding: EdgeInsets.only(bottom: 32.h),
