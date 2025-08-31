@@ -9,6 +9,7 @@ abstract class Routes {
   static const OTP = _Paths.OTP;
   static const INPUTPHONENUMBER = _Paths.INPUTPHONENUMBER;
   static const UPDATECONFIRMATION = _Paths.UPDATECONFIRMATION;
+  static const ADDPLACE = _Paths.ADDPLACE;
 }
 
 abstract class _Paths {
@@ -19,4 +20,5 @@ abstract class _Paths {
   static const OTP = '/otp';
   static const INPUTPHONENUMBER = '/input_phone';
   static const UPDATECONFIRMATION = '/update_confirmation';
+  static const ADDPLACE = '/add_place';
 }
