@@ -103,7 +103,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           horizontal: widget.contentPaddingHorizontal ?? 20.w,
           vertical: widget.contentPaddingVertical ?? 20.w,
         ),
-        fillColor: widget.fillColor ?? AppColors.secenderyAppColor,
+        fillColor: widget.fillColor ?? AppColors.seconderyAppColor,
         filled: true,
         prefixIcon: widget.prefixIcon != null
             ? Padding(

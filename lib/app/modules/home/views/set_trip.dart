@@ -95,10 +95,11 @@ class _SetTripSheetItemState extends State<SetTripSheetItem> {
               children: [
                 // Pickup location
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+                  padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 3.h),
                   decoration: BoxDecoration(
-                    color: AppColors.secenderyAppColor,
+                    color: AppColors.seconderyAppColor,
                     borderRadius: BorderRadius.circular(12.r),
+                    border: Border.all(color: AppColors.butterflyBoshColor)
                   ),
                   child: Column(
                     children: [
@@ -120,7 +121,7 @@ class _SetTripSheetItemState extends State<SetTripSheetItem> {
                                   color: Colors.grey[500],
                                 ),
                                 filled: true,
-                                fillColor: AppColors.secenderyAppColor,
+                                fillColor: AppColors.seconderyAppColor,
                                 border: InputBorder.none,
                                 enabledBorder: InputBorder.none,
                                 focusedBorder: InputBorder.none,
@@ -132,6 +133,7 @@ class _SetTripSheetItemState extends State<SetTripSheetItem> {
                           ),
                         ],
                       ),
+                      Divider(color: AppColors.butterflyBoshColor),
                       // Drop-off location
                       Row(
                         children: [
@@ -151,7 +153,7 @@ class _SetTripSheetItemState extends State<SetTripSheetItem> {
                                   color: Colors.grey[500],
                                 ),
                                 filled: true,
-                                fillColor: AppColors.secenderyAppColor,
+                                fillColor: AppColors.seconderyAppColor,
                                 border: InputBorder.none,
                                 enabledBorder: InputBorder.none,
                                 focusedBorder: InputBorder.none,
@@ -170,7 +172,6 @@ class _SetTripSheetItemState extends State<SetTripSheetItem> {
           ),
 
           SizedBox(height: 24.h),
-
           // Schedule for later Action buttons
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.w),
@@ -180,32 +181,37 @@ class _SetTripSheetItemState extends State<SetTripSheetItem> {
                   child: Container(
                     padding: EdgeInsets.symmetric(vertical: 12.h),
                     decoration: BoxDecoration(
-                      color: AppColors.secenderyAppColor,
-                      borderRadius: BorderRadius.circular(12.r),
+                      color: AppColors.seconderyAppColor,
+                      borderRadius: BorderRadius.circular(20.r),
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.schedule,
-                          color: Colors.grey[400],
-                          size: 20.sp,
-                        ),
-                        SizedBox(width: 8.w),
-                        Text(
-                          'Schedule for later',
-                          style: GoogleFontStyles.h5(
+                    child: InkWell(
+                      onTap: (){
+                      //=======================<<<<
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.watch_later,
                             color: Colors.grey[400],
-                            fontWeight: FontWeight.w500,
+                            size: 20.sp,
                           ),
-                        ),
-                        SizedBox(width: 8.w),
-                        Icon(
-                          Icons.keyboard_arrow_down,
-                          color: Colors.grey[400],
-                          size: 20.sp,
-                        ),
-                      ],
+                          SizedBox(width: 8.w),
+                          Text(
+                            'Schedule for later',
+                            style: GoogleFontStyles.h5(
+                              color: Colors.grey[400],
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          SizedBox(width: 8.w),
+                          Icon(
+                            Icons.keyboard_arrow_down,
+                            color: Colors.grey[400],
+                            size: 20.sp,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -214,8 +220,8 @@ class _SetTripSheetItemState extends State<SetTripSheetItem> {
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
                   decoration: BoxDecoration(
-                    color: AppColors.secenderyAppColor,
-                    borderRadius: BorderRadius.circular(12.r),
+                    color: AppColors.seconderyAppColor,
+                    borderRadius: BorderRadius.circular(20.r),
                   ),
                   child: Row(
                     children: [
@@ -253,16 +259,18 @@ class _SetTripSheetItemState extends State<SetTripSheetItem> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
-                        Icons.map_outlined,
-                        color: Colors.white,
-                        size: 20.sp,
+                      CircleAvatar(
+                        backgroundColor: AppColors.mirageColor,
+                        child: Icon(
+                          Icons.map_rounded,
+                          color: Colors.white,
+                          size: 20.sp,
+                        ),
                       ),
                       SizedBox(width: 8.w),
                       Text(
                         'Set location on map',
                         style: GoogleFontStyles.h5(
-                          color: Colors.white,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -274,17 +282,26 @@ class _SetTripSheetItemState extends State<SetTripSheetItem> {
                   onTap: () {
                     // Handle saved places
                   },
-                  child: Container(
-                    padding: EdgeInsets.all(12.w),
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF2A2A3E),
-                      borderRadius: BorderRadius.circular(12.r),
-                    ),
-                    child: Icon(
-                      Icons.star_outline,
-                      color: Colors.white,
-                      size: 20.sp,
-                    ),
+                  child: Row(
+                    children: [
+
+                      CircleAvatar(
+                        child: Icon(
+                          Icons.star,
+                          color: Colors.white,
+                          size: 20.sp,
+                        ),
+                        backgroundColor: AppColors.mirageColor,
+                      ),
+                      SizedBox(width: 8.w),
+                      Text(
+                        'Saved Places',
+                        style: GoogleFontStyles.h5(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
@@ -293,7 +310,7 @@ class _SetTripSheetItemState extends State<SetTripSheetItem> {
 
           SizedBox(height: 24.h),
 
-          // Recent Rides section
+          // ==== Recent Rides section =======
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -303,7 +320,6 @@ class _SetTripSheetItemState extends State<SetTripSheetItem> {
                   child: Text(
                     'Recent Rides',
                     style: GoogleFontStyles.h4(
-                      color: Colors.white,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
@@ -320,25 +336,20 @@ class _SetTripSheetItemState extends State<SetTripSheetItem> {
                           // Handle ride selection
                           Navigator.pop(context, ride);
                         },
-                        child: Container(
-                          margin: EdgeInsets.only(bottom: 12.h),
-                          padding: EdgeInsets.all(16.w),
-                          decoration: BoxDecoration(
-                            color: const Color(0xFF2A2A3E),
-                            borderRadius: BorderRadius.circular(12.r),
-                          ),
+                        child: Padding(
+                          padding: EdgeInsets.only(bottom: 8.h),
                           child: Row(
                             children: [
                               Container(
                                 width: 40.w,
                                 height: 40.w,
                                 decoration: BoxDecoration(
-                                  color: const Color(0xFF3A3A4E),
-                                  borderRadius: BorderRadius.circular(8.r),
+                                  color: AppColors.balticSeaColor,
+                                  borderRadius: BorderRadius.all(Radius.circular(20.sp)),
                                 ),
                                 child: Icon(
                                   Icons.location_on,
-                                  color: Colors.grey[400],
+                                  color: Colors.white,
                                   size: 20.sp,
                                 ),
                               ),

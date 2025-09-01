@@ -18,7 +18,7 @@ class TripSetSearchWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.secenderyAppColor,
+        color: AppColors.seconderyAppColor,
         borderRadius: BorderRadius.circular(25.r),
       ),
       child: Row(
