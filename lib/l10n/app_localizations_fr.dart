@@ -141,4 +141,45 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get attraction => 'Attraction';
+
+  @override
+  String get pickup_location => 'Lieu de prise en charge';
+
+  @override
+  String get add_stop_location => 'Ajouter un arrêt';
+
+  @override
+  String get drop_off_location => 'Lieu de dépose';
+
+  @override
+  String get schedule_for_later => 'Programmer pour plus tard';
+
+  @override
+  String get add_stop => 'Ajouter un arrêt';
+
+  @override
+  String get set_location_on_map => 'Définir l\'emplacement sur la carte';
+
+  @override
+  String get saved_places => 'Lieux sauvegardés';
+
+  @override
+  String get whenYouNeedARide => 'Quand avez-vous besoin d\'une course ?';
+
+  @override
+  String get now => 'Maintenant';
+
+  @override
+  String get later => 'Plus tard';
+
+  @override
+  String get requestNowAndGoAnywhere =>
+      'Demander maintenant et aller n\'importe où';
+
+  @override
+  String get requestLaterAndGoAnywhere =>
+      'Demander plus tard et aller n\'importe où';
+
+  @override
+  String get done => 'Terminé';
 }

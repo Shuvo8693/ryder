@@ -138,4 +138,43 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get attraction => 'Attraction';
+
+  @override
+  String get pickup_location => 'Pickup Location';
+
+  @override
+  String get add_stop_location => 'Add stop Location';
+
+  @override
+  String get drop_off_location => 'Drop-off Location';
+
+  @override
+  String get schedule_for_later => 'Schedule for later';
+
+  @override
+  String get add_stop => 'Add Stop';
+
+  @override
+  String get set_location_on_map => 'Set location on map';
+
+  @override
+  String get saved_places => 'Saved Places';
+
+  @override
+  String get whenYouNeedARide => 'When you need a ride?';
+
+  @override
+  String get now => 'Now';
+
+  @override
+  String get later => 'Later';
+
+  @override
+  String get requestNowAndGoAnywhere => 'Request now and go any where';
+
+  @override
+  String get requestLaterAndGoAnywhere => 'Request later and go any where';
+
+  @override
+  String get done => 'Done';
 }

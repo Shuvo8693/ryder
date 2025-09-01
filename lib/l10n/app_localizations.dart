@@ -345,6 +345,84 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Attraction'**
   String get attraction;
+
+  /// Label for the user's chosen starting point for a ride
+  ///
+  /// In en, this message translates to:
+  /// **'Pickup Location'**
+  String get pickup_location;
+
+  /// Button text to add an intermediate stop to a journey
+  ///
+  /// In en, this message translates to:
+  /// **'Add stop Location'**
+  String get add_stop_location;
+
+  /// Label for the user's final destination for a ride
+  ///
+  /// In en, this message translates to:
+  /// **'Drop-off Location'**
+  String get drop_off_location;
+
+  /// Option to book a ride for a future time instead of immediately
+  ///
+  /// In en, this message translates to:
+  /// **'Schedule for later'**
+  String get schedule_for_later;
+
+  /// Short label for a button that adds an intermediate stop
+  ///
+  /// In en, this message translates to:
+  /// **'Add Stop'**
+  String get add_stop;
+
+  /// Option to precisely choose a location by placing a pin on a map
+  ///
+  /// In en, this message translates to:
+  /// **'Set location on map'**
+  String get set_location_on_map;
+
+  /// Label for a section or list containing the user's bookmarked locations
+  ///
+  /// In en, this message translates to:
+  /// **'Saved Places'**
+  String get saved_places;
+
+  /// Title asking when user needs a ride
+  ///
+  /// In en, this message translates to:
+  /// **'When you need a ride?'**
+  String get whenYouNeedARide;
+
+  /// Option for immediate ride
+  ///
+  /// In en, this message translates to:
+  /// **'Now'**
+  String get now;
+
+  /// Option for scheduled ride
+  ///
+  /// In en, this message translates to:
+  /// **'Later'**
+  String get later;
+
+  /// Subtitle for immediate ride option
+  ///
+  /// In en, this message translates to:
+  /// **'Request now and go any where'**
+  String get requestNowAndGoAnywhere;
+
+  /// Subtitle for scheduled ride option
+  ///
+  /// In en, this message translates to:
+  /// **'Request later and go any where'**
+  String get requestLaterAndGoAnywhere;
+
+  /// Done button text
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get done;
 }
 
 class _AppLocalizationsDelegate

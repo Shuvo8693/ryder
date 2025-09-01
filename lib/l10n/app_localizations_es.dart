@@ -141,4 +141,45 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get attraction => 'Atracción';
+
+  @override
+  String get pickup_location => 'Lugar de recogida';
+
+  @override
+  String get add_stop_location => 'Agregar parada';
+
+  @override
+  String get drop_off_location => 'Lugar de destino';
+
+  @override
+  String get schedule_for_later => 'Programar para más tarde';
+
+  @override
+  String get add_stop => 'Agregar parada';
+
+  @override
+  String get set_location_on_map => 'Establecer ubicación en el mapa';
+
+  @override
+  String get saved_places => 'Lugares guardados';
+
+  @override
+  String get whenYouNeedARide => '¿Cuándo necesitas un viaje?';
+
+  @override
+  String get now => 'Ahora';
+
+  @override
+  String get later => 'Más tarde';
+
+  @override
+  String get requestNowAndGoAnywhere =>
+      'Solicitar ahora e ir a cualquier lugar';
+
+  @override
+  String get requestLaterAndGoAnywhere =>
+      'Solicitar más tarde e ir a cualquier lugar';
+
+  @override
+  String get done => 'Hecho';
 }

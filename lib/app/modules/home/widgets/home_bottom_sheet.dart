@@ -5,8 +5,6 @@ import 'package:ryder/app/modules/home/views/set_trip.dart';
 import 'package:ryder/app/modules/home/widgets/tab_bar_items.dart';
 import 'package:ryder/app/modules/home/widgets/trip_set_search_widgets.dart';
 import 'package:ryder/common/localization_extension/localization_extension.dart';
-import 'package:ryder/common/widgets/custom_text_field.dart';
-import 'package:ryder/common/widgets/custom_textbutton_with_icon.dart';
 
 class HomeBottomSheet extends StatefulWidget {
   final Function(LatLng, String)? onLocationSelected;
@@ -82,7 +80,7 @@ class _HomeBottomSheetState extends State<HomeBottomSheet>
     return Container(
       height: widget.isModal ? null : 380.h,
       decoration: BoxDecoration(
-        color: Colors.black,
+        color:  Theme.of(context).primaryColor,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(20.r),
           topRight: Radius.circular(20.r),

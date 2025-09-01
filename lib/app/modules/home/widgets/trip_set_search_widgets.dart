@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ryder/common/app_color/app_colors.dart';
 import 'package:ryder/common/app_text_style/google_app_style.dart';
+import 'package:ryder/common/localization_extension/localization_extension.dart';
 
 class TripSetSearchWidget extends StatelessWidget {
   final VoidCallback? onSearchTap;
@@ -16,6 +17,7 @@ class TripSetSearchWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     return Container(
       decoration: BoxDecoration(
         color: AppColors.seconderyAppColor,
@@ -40,8 +42,7 @@ class TripSetSearchWidget extends StatelessWidget {
                       size: 20.sp,
                     ),
                     SizedBox(width: 12.w),
-                    Text(
-                      'Where are you headed?',
+                    Text(l10n.where_are_you_headed,
                       style: GoogleFontStyles.h5(
                         color: Colors.grey[400],
                         fontWeight: FontWeight.w400,

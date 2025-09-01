@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ryder/app/modules/home/widgets/set_trip_schedule.dart';
 import 'package:ryder/common/app_color/app_colors.dart';
 import 'package:ryder/common/app_text_style/google_app_style.dart';
+import 'package:ryder/common/localization_extension/localization_extension.dart';
+import 'package:ryder/l10n/app_localizations.dart'; // Add this import
 
 class SetTripSheetItem extends StatefulWidget {
   const SetTripSheetItem({super.key});
@@ -13,8 +16,9 @@ class SetTripSheetItem extends StatefulWidget {
 
 class _SetTripSheetItemState extends State<SetTripSheetItem> {
   final TextEditingController _pickupController = TextEditingController();
-  final TextEditingController _dropoffController = TextEditingController();
-
+  final TextEditingController _dropOffController = TextEditingController();
+  final TextEditingController _stopController = TextEditingController();
+  bool isAddStop = false;
   // Sample recent rides data
   final List<Map<String, String>> recentRides = [
     {
@@ -41,10 +45,11 @@ class _SetTripSheetItemState extends State<SetTripSheetItem> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n; // Add this line
     return Container(
       height: 0.9.sh,
       decoration: BoxDecoration(
-        color: Colors.black,
+        color: Theme.of(context).primaryColor,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(20.r),
           topRight: Radius.circular(20.r),
@@ -78,7 +83,7 @@ class _SetTripSheetItemState extends State<SetTripSheetItem> {
                 ),
                 SizedBox(width: 16.w),
                 Text(
-                  'Where are you headed?',
+                  l10n.where_are_you_headed, // Updated
                   style: GoogleFontStyles.h3(
                     color: Colors.white,
                     fontWeight: FontWeight.w600,
@@ -93,13 +98,13 @@ class _SetTripSheetItemState extends State<SetTripSheetItem> {
             padding: EdgeInsets.symmetric(horizontal: 16.w),
             child: Column(
               children: [
-                // Pickup location
+                // ================ Pickup location ======================
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 3.h),
                   decoration: BoxDecoration(
-                    color: AppColors.seconderyAppColor,
-                    borderRadius: BorderRadius.circular(12.r),
-                    border: Border.all(color: AppColors.butterflyBoshColor)
+                      color: AppColors.seconderyAppColor,
+                      borderRadius: BorderRadius.circular(12.r),
+                      border: Border.all(color: AppColors.butterflyBoshColor)
                   ),
                   child: Column(
                     children: [
@@ -116,7 +121,7 @@ class _SetTripSheetItemState extends State<SetTripSheetItem> {
                               controller: _pickupController,
                               style: GoogleFontStyles.h5(color: Colors.white),
                               decoration: InputDecoration(
-                                hintText: 'Pickup Location',
+                                hintText: l10n.pickup_location, // Updated
                                 hintStyle: GoogleFontStyles.h5(
                                   color: Colors.grey[500],
                                 ),
@@ -127,14 +132,50 @@ class _SetTripSheetItemState extends State<SetTripSheetItem> {
                                 focusedBorder: InputBorder.none,
                                 errorBorder: InputBorder.none,
                                 focusedErrorBorder: InputBorder.none,
-
                               ),
                             ),
                           ),
                         ],
                       ),
+                      // ============= Add Stop location ================
+                      if(isAddStop)
+                        Column(
+                          children: [
+                            Divider(color: AppColors.butterflyBoshColor),
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.add,
+                                  color: Colors.grey[400],
+                                  size: 20.sp,
+                                ),
+                                SizedBox(width: 12.w),
+                                Expanded(
+                                  child: TextField(
+                                    controller: _stopController,
+                                    style: GoogleFontStyles.h5(color: Colors.white),
+                                    decoration: InputDecoration(
+                                      hintText: l10n.add_stop_location, // Updated
+                                      hintStyle: GoogleFontStyles.h5(
+                                        color: Colors.grey[500],
+                                      ),
+                                      filled: true,
+                                      fillColor: AppColors.seconderyAppColor,
+                                      border: InputBorder.none,
+                                      enabledBorder: InputBorder.none,
+                                      focusedBorder: InputBorder.none,
+                                      errorBorder: InputBorder.none,
+                                      focusedErrorBorder: InputBorder.none,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+
                       Divider(color: AppColors.butterflyBoshColor),
-                      // Drop-off location
+                      // ================ Drop-off location =============
                       Row(
                         children: [
                           Icon(
@@ -145,10 +186,10 @@ class _SetTripSheetItemState extends State<SetTripSheetItem> {
                           SizedBox(width: 12.w),
                           Expanded(
                             child: TextField(
-                              controller: _dropoffController,
+                              controller: _dropOffController,
                               style: GoogleFontStyles.h5(color: Colors.white),
                               decoration: InputDecoration(
-                                hintText: 'Drop-off Location',
+                                hintText: l10n.drop_off_location, // Updated
                                 hintStyle: GoogleFontStyles.h5(
                                   color: Colors.grey[500],
                                 ),
@@ -186,22 +227,27 @@ class _SetTripSheetItemState extends State<SetTripSheetItem> {
                     ),
                     child: InkWell(
                       onTap: (){
-                      //=======================<<<<
+                        //=======================<<<<
+                        showTripSetScheduleBottomSheet(context);
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
+                          SizedBox(width: 8.w),
                           Icon(
                             Icons.watch_later,
                             color: Colors.grey[400],
                             size: 20.sp,
                           ),
                           SizedBox(width: 8.w),
-                          Text(
-                            'Schedule for later',
-                            style: GoogleFontStyles.h5(
-                              color: Colors.grey[400],
-                              fontWeight: FontWeight.w500,
+                          Expanded(
+                            child: Text(
+                              l10n.schedule_for_later,
+                              maxLines: 2,// Updated
+                              style: GoogleFontStyles.h5(
+                                color: Colors.grey[400],
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
                           ),
                           SizedBox(width: 8.w),
@@ -210,12 +256,13 @@ class _SetTripSheetItemState extends State<SetTripSheetItem> {
                             color: Colors.grey[400],
                             size: 20.sp,
                           ),
+                          SizedBox(width: 8.w),
                         ],
                       ),
                     ),
                   ),
                 ),
-                // Add Stop Action buttons
+                //  Add Stop Action buttons
                 SizedBox(width: 12.w),
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
@@ -223,22 +270,29 @@ class _SetTripSheetItemState extends State<SetTripSheetItem> {
                     color: AppColors.seconderyAppColor,
                     borderRadius: BorderRadius.circular(20.r),
                   ),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.add,
-                        color: Colors.grey[400],
-                        size: 20.sp,
-                      ),
-                      SizedBox(width: 4.w),
-                      Text(
-                        'Add Stop',
-                        style: GoogleFontStyles.h5(
+                  child: GestureDetector(
+                    onTap: (){
+                      setState(() {
+                        isAddStop = !isAddStop;
+                      });
+                    },
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.add,
                           color: Colors.grey[400],
-                          fontWeight: FontWeight.w500,
+                          size: 20.sp,
                         ),
-                      ),
-                    ],
+                        SizedBox(width: 4.w),
+                        Text(
+                          l10n.add_stop, // Updated
+                          style: GoogleFontStyles.h5(
+                            color: Colors.grey[400],
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -250,14 +304,13 @@ class _SetTripSheetItemState extends State<SetTripSheetItem> {
           // Quick actions
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.w),
-            child: Row(
+            child: Column(
               children: [
                 GestureDetector(
                   onTap: () {
                     // Handle set location on map
                   },
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       CircleAvatar(
                         backgroundColor: AppColors.mirageColor,
@@ -269,7 +322,7 @@ class _SetTripSheetItemState extends State<SetTripSheetItem> {
                       ),
                       SizedBox(width: 8.w),
                       Text(
-                        'Set location on map',
+                        l10n.set_location_on_map,
                         style: GoogleFontStyles.h5(
                           fontWeight: FontWeight.w500,
                         ),
@@ -277,25 +330,24 @@ class _SetTripSheetItemState extends State<SetTripSheetItem> {
                     ],
                   ),
                 ),
-                SizedBox(width: 12.w),
+                SizedBox(height: 12.w),
                 GestureDetector(
                   onTap: () {
                     // Handle saved places
                   },
                   child: Row(
                     children: [
-
                       CircleAvatar(
+                        backgroundColor: AppColors.mirageColor,
                         child: Icon(
                           Icons.star,
                           color: Colors.white,
                           size: 20.sp,
                         ),
-                        backgroundColor: AppColors.mirageColor,
                       ),
                       SizedBox(width: 8.w),
                       Text(
-                        'Saved Places',
+                        l10n.saved_places, // Updated
                         style: GoogleFontStyles.h5(
                           color: Colors.white,
                           fontWeight: FontWeight.w500,
@@ -318,7 +370,7 @@ class _SetTripSheetItemState extends State<SetTripSheetItem> {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16.w),
                   child: Text(
-                    'Recent Rides',
+                    l10n.recent_rides, // Updated
                     style: GoogleFontStyles.h4(
                       fontWeight: FontWeight.w600,
                     ),
@@ -395,7 +447,27 @@ class _SetTripSheetItemState extends State<SetTripSheetItem> {
   @override
   void dispose() {
     _pickupController.dispose();
-    _dropoffController.dispose();
+    _dropOffController.dispose();
     super.dispose();
+  }
+
+  void showTripSetScheduleBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.transparent,
+      isScrollControlled: true,
+      builder: (context) => TripSetScheduleBottomSheetItem(),
+    ).then((selectedOption) {
+      if (selectedOption != null) {
+        print('Selected option: $selectedOption');
+        // Handle the selected option (now or later)
+        if (selectedOption == 'now') {
+          // Handle immediate ride request
+        } else if (selectedOption == 'later') {
+          // Handle scheduled ride request
+          // You might want to show date/time picker here
+        }
+      }
+    });
   }
 }

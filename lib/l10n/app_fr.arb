@@ -53,14 +53,25 @@
 
 
   "where_are_you_headed": "Où allez-vous ?",
-
   "good_morning_user": "Bonjour, {userName}",
-
   "recent_rides": "Trajets Récents",
-
   "saved": "Enregistrés",
-
   "airport": "Aéroport",
 
-  "attraction": "Attraction"
+  "attraction": "Attraction",
+  "pickup_location": "Lieu de prise en charge",
+  "add_stop_location": "Ajouter un arrêt",
+  "drop_off_location": "Lieu de dépose",
+  "schedule_for_later": "Programmer pour plus tard",
+  "add_stop": "Ajouter un arrêt",
+  "set_location_on_map": "Définir l'emplacement sur la carte",
+  "saved_places": "Lieux sauvegardés",
+
+  "whenYouNeedARide": "Quand avez-vous besoin d'une course ?",
+  "now": "Maintenant",
+  "later": "Plus tard",
+  "requestNowAndGoAnywhere": "Demander maintenant et aller n'importe où",
+  "requestLaterAndGoAnywhere": "Demander plus tard et aller n'importe où",
+  "done": "Terminé"
+
 }

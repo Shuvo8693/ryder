@@ -51,17 +51,26 @@
   "terms_required": "Términos requeridos",
   "please_agree_terms": "Por favor, acepta los Términos y Condiciones para continuar",
 
-
-
   "where_are_you_headed": "¿A dónde te diriges?",
-
   "good_morning_user": "Buenos días, {userName}",
-
   "recent_rides": "Viajes Recientes",
-
   "saved": "Guardados",
-
   "airport": "Aeropuerto",
+  "attraction": "Atracción",
 
-  "attraction": "Atracción"
+  "pickup_location": "Lugar de recogida",
+  "add_stop_location": "Agregar parada",
+  "drop_off_location": "Lugar de destino",
+  "schedule_for_later": "Programar para más tarde",
+  "add_stop": "Agregar parada",
+  "set_location_on_map": "Establecer ubicación en el mapa",
+  "saved_places": "Lugares guardados",
+
+  "whenYouNeedARide": "¿Cuándo necesitas un viaje?",
+  "now": "Ahora",
+  "later": "Más tarde",
+  "requestNowAndGoAnywhere": "Solicitar ahora e ir a cualquier lugar",
+  "requestLaterAndGoAnywhere": "Solicitar más tarde e ir a cualquier lugar",
+  "done": "Hecho"
+
 }

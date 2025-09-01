@@ -220,5 +220,68 @@
   "attraction": "Attraction",
   "@attraction": {
     "description": "Tab label for attraction locations section"
+  },
+
+
+  "pickup_location": "Pickup Location",
+  "@pickup_location": {
+    "description": "Label for the user's chosen starting point for a ride"
+  },
+
+  "add_stop_location": "Add stop Location",
+  "@add_stop_location": {
+    "description": "Button text to add an intermediate stop to a journey"
+  },
+
+  "drop_off_location": "Drop-off Location",
+  "@drop_off_location": {
+    "description": "Label for the user's final destination for a ride"
+  },
+
+  "schedule_for_later": "Schedule for later",
+  "@schedule_for_later": {
+    "description": "Option to book a ride for a future time instead of immediately"
+  },
+
+  "add_stop": "Add Stop",
+  "@add_stop": {
+    "description": "Short label for a button that adds an intermediate stop"
+  },
+
+  "set_location_on_map": "Set location on map",
+  "@set_location_on_map": {
+    "description": "Option to precisely choose a location by placing a pin on a map"
+  },
+
+  "saved_places": "Saved Places",
+  "@saved_places": {
+    "description": "Label for a section or list containing the user's bookmarked locations"
+  },
+
+
+  "whenYouNeedARide": "When you need a ride?",
+  "@whenYouNeedARide": {
+    "description": "Title asking when user needs a ride"
+  },
+  "now": "Now",
+  "@now": {
+    "description": "Option for immediate ride"
+  },
+  "later": "Later",
+  "@later": {
+    "description": "Option for scheduled ride"
+  },
+  "requestNowAndGoAnywhere": "Request now and go any where",
+  "@requestNowAndGoAnywhere": {
+    "description": "Subtitle for immediate ride option"
+  },
+  "requestLaterAndGoAnywhere": "Request later and go any where",
+  "@requestLaterAndGoAnywhere": {
+    "description": "Subtitle for scheduled ride option"
+  },
+  "done": "Done",
+  "@done": {
+    "description": "Done button text"
   }
+
 }
