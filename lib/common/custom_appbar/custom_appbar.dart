@@ -4,7 +4,7 @@ import 'package:ryder/common/app_color/app_colors.dart';
 import 'package:ryder/common/app_icons/app_icons.dart';
 import 'package:ryder/common/svg_base64/ExtractionBase64Image.dart';
 
-class ReusableAppBar extends StatelessWidget implements PreferredSizeWidget {
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
   final Widget? titleWidget;
   final List<Widget>? actions;
@@ -24,8 +24,9 @@ class ReusableAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Color? shadowColor;
   final Color? surfaceTintColor;
   final SystemUiOverlayStyle? systemOverlayStyle;
+  final bool transparent; // New parameter for transparency
 
-  const ReusableAppBar({
+  const CustomAppBar({
     super.key,
     this.title,
     this.titleWidget,
@@ -46,6 +47,7 @@ class ReusableAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.shadowColor,
     this.surfaceTintColor,
     this.systemOverlayStyle,
+    this.transparent = false, // Default to false for backward compatibility
   });
 
   @override
@@ -54,9 +56,11 @@ class ReusableAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: _buildTitle(),
       actions: actions,
       leading: _buildLeading(context),
-      backgroundColor: backgroundColor?? AppColors.primaryColor,
+      backgroundColor: transparent
+          ? Colors.transparent
+          : (backgroundColor ?? AppColors.primaryColor),
       foregroundColor: foregroundColor,
-      elevation: elevation,
+      elevation: transparent ? 0 : elevation,
       centerTitle: centerTitle,
       automaticallyImplyLeading: automaticallyImplyLeading,
       titleSpacing: titleSpacing,
@@ -64,9 +68,22 @@ class ReusableAppBar extends StatelessWidget implements PreferredSizeWidget {
       titleTextStyle: titleTextStyle,
       toolbarHeight: toolbarHeight,
       shape: shape,
-      shadowColor: shadowColor,
-      surfaceTintColor: surfaceTintColor,
-      systemOverlayStyle: systemOverlayStyle,
+      shadowColor: transparent ? Colors.transparent : shadowColor,
+      surfaceTintColor: transparent ? Colors.transparent : surfaceTintColor,
+      systemOverlayStyle: transparent
+          ? SystemUiOverlayStyle(
+              statusBarColor: Colors.transparent,
+              statusBarIconBrightness: Brightness.light,
+            )
+          : systemOverlayStyle,
+      // Add these properties for true transparency
+      flexibleSpace: transparent
+          ? Container(
+              decoration: const BoxDecoration(color: Colors.transparent),
+            )
+          : null,
+      // Force the AppBar to be truly transparent
+      scrolledUnderElevation: transparent ? 0 : null,
     );
   }
 
@@ -95,4 +112,14 @@ class ReusableAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Size get preferredSize => Size.fromHeight(toolbarHeight);
+
+  // ================== Transparent appbar ================
+  // extendBodyBehindAppBar: true,
+  // AppBar(
+  //     backgroundColor: Colors.transparent,
+  //     surfaceTintColor: Colors.transparent,
+  //     systemOverlayStyle: SystemUiOverlayStyle(
+  //         statusBarColor: Colors.transparent,
+  //         statusBarIconBrightness: Brightness.dark
+  //     ),
 }

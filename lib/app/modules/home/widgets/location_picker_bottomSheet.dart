@@ -4,23 +4,20 @@ import 'package:ryder/common/app_color/app_colors.dart';
 import 'package:ryder/common/app_text_style/google_app_style.dart';
 import 'package:ryder/common/widgets/custom_button.dart';
 import 'package:ryder/common/widgets/custom_text_field.dart';
-// Import your custom components
-// import 'your_custom_text_field.dart';
-// import 'your_custom_button.dart';
-// import 'your_google_font_styles.dart';
 
 enum LocationType { pickup, dropoff }
 
 class LocationPickerModalSheetItem extends StatefulWidget {
   final LocationType locationType;
-  final String? initialAddress;
+  final List<String>? initialAddress;
   final Function(String)? onAddressConfirmed;
+  final int index;
 
   const LocationPickerModalSheetItem({
     super.key,
     required this.locationType,
     this.initialAddress,
-    this.onAddressConfirmed,
+    this.onAddressConfirmed, required this.index,
   });
 
   @override
@@ -28,26 +25,26 @@ class LocationPickerModalSheetItem extends StatefulWidget {
 }
 
 class _LocationPickerModalSheetItemState extends State<LocationPickerModalSheetItem> {
-  late TextEditingController _addressController;
+   final List<TextEditingController> _addressController = [TextEditingController(),TextEditingController()];
 
   @override
   void initState() {
     super.initState();
-    _addressController = TextEditingController(
-        text: widget.initialAddress ?? ''
-    );
+    // _addressController[widget.index] =  TextEditingController(
+    //     text: widget.initialAddress?[widget.index] ?? ''
+    // );
   }
 
   @override
   void dispose() {
-    _addressController.dispose();
+    _addressController[widget.index].dispose();
     super.dispose();
   }
 
   void _handleConfirmLocation() {
-    if (_addressController.text.trim().isNotEmpty) {
-      widget.onAddressConfirmed?.call(_addressController.text.trim());
-      Navigator.of(context).pop();
+    if (_addressController[widget.index].text.trim().isNotEmpty) {
+      widget.onAddressConfirmed?.call(_addressController[widget.index].text.trim());
+     // Navigator.of(context).pop();
     }
   }
 
@@ -132,7 +129,8 @@ class _LocationPickerModalSheetItemState extends State<LocationPickerModalSheetI
 
                 // Address input field
                 CustomTextField(
-                  controller: _addressController,
+                  controller: _addressController[widget.index],
+                  contentPaddingVertical: 16.h,
                   hintText: _hintText,
                   prefixIcon: Icon(
                     Icons.search,
@@ -174,8 +172,8 @@ void showPickupLocationModal(
     backgroundColor: Colors.transparent,
     builder: (context) => LocationPickerModalSheetItem(
       locationType: LocationType.pickup,
-      initialAddress: initialAddress,
-      onAddressConfirmed: onAddressConfirmed,
+      initialAddress: [initialAddress!],
+      onAddressConfirmed: onAddressConfirmed, index: 0,
     ),
   );
 }
@@ -191,8 +189,8 @@ void showDropOffLocationModal(
     backgroundColor: Colors.transparent,
     builder: (context) => LocationPickerModalSheetItem(
       locationType: LocationType.dropoff,
-      initialAddress: initialAddress,
-      onAddressConfirmed: onAddressConfirmed,
+      initialAddress: [initialAddress!],
+      onAddressConfirmed: onAddressConfirmed, index: 1,
     ),
   );
 }
@@ -210,8 +208,8 @@ void showLocationModal(
     backgroundColor: Colors.transparent,
     builder: (context) => LocationPickerModalSheetItem(
       locationType: locationType,
-      initialAddress: initialAddress,
-      onAddressConfirmed: onAddressConfirmed,
+      initialAddress: [initialAddress!],
+      onAddressConfirmed: onAddressConfirmed, index: 0,
     ),
   );
 }

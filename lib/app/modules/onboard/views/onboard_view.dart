@@ -18,7 +18,7 @@ class OnboardView extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
     return Scaffold(
-      appBar: ReusableAppBar(showLogo: true),
+      appBar: CustomAppBar(showLogo: true),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0),

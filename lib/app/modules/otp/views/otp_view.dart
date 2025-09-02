@@ -79,7 +79,7 @@ class _OtpViewState extends State<OtpView> {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
     return Scaffold(
-      appBar: ReusableAppBar(showLogo: true),
+      appBar: CustomAppBar(showLogo: true),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.w),
         child: SingleChildScrollView(

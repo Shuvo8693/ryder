@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:ryder/app/modules/home/widgets/home_bottom_sheet.dart';
 import 'package:ryder/app/modules/home/widgets/location_picker_bottomSheet.dart';
 import 'package:ryder/app/modules/home/widgets/pickup_dropoff_modalsheet.dart';
 import 'package:ryder/app/modules/onboard/widgets/language_selector.dart';
+import 'package:ryder/common/custom_appbar/custom_appbar.dart';
 import 'package:ryder/common/custom_map/reusable_map.dart';
 
 class PickupDropOffView extends StatefulWidget {
@@ -21,6 +23,9 @@ class _PickupDropOffViewState extends State<PickupDropOffView> {
   // Address state management
   String? pickupAddress;
   String? dropoffAddress;
+
+  bool isPicked = false;
+  bool isDropOff = false;
 
   // Sample map position (Hamilton, ON area)
   static const LatLng _center = LatLng(43.2557, -79.8711);
@@ -46,6 +51,8 @@ class _PickupDropOffViewState extends State<PickupDropOffView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: CustomAppBar(transparent: true,),
       body: Stack(
         children: [
           // Reusable Map Layer
@@ -109,54 +116,39 @@ class _PickupDropOffViewState extends State<PickupDropOffView> {
           //     // Navigate to next screen or show ride options
           //   },
           // ),
+          if(!isPicked)
           Positioned(
             left: 0,
             right: 0,
             bottom: 0,
             child: LocationPickerModalSheetItem(
               locationType: LocationType.pickup,
-              initialAddress: "",
+              initialAddress: ["Borobagh"],
               onAddressConfirmed: (value){
+                if(value.isNotEmpty){
+                  setState(() {
+                    isPicked = !isPicked;
+                  });
+                }
+              }, index: 0,
+            ),
+          ),
+          if(isPicked)
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: 0,
+            child: LocationPickerModalSheetItem(
+              locationType: LocationType.dropoff,
+              initialAddress: ["Uttarkhan"],
+              onAddressConfirmed: (value){
+                   if(value.isNotEmpty){
 
-              },
+                   }
+              }, index: 1,
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  // ============== Pickup modal sheet ============
-  void showPickupLocationModal(
-      BuildContext context, {
-        String? initialAddress,
-        Function(String)? onAddressConfirmed,
-      }) {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      backgroundColor: Colors.transparent,
-      builder: (context) => LocationPickerModalSheetItem(
-        locationType: LocationType.pickup,
-        initialAddress: initialAddress,
-        onAddressConfirmed: onAddressConfirmed,
-      ),
-    );
-  }
-  // ============== DropOff modal sheet ============
-  void showDropOffLocationModal(
-      BuildContext context, {
-        String? initialAddress,
-        Function(String)? onAddressConfirmed,
-      }) {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      backgroundColor: Colors.transparent,
-      builder: (context) => LocationPickerModalSheetItem(
-        locationType: LocationType.dropoff,
-        initialAddress: initialAddress,
-        onAddressConfirmed: onAddressConfirmed,
       ),
     );
   }
