@@ -10,6 +10,7 @@ abstract class Routes {
   static const INPUTPHONENUMBER = _Paths.INPUTPHONENUMBER;
   static const UPDATECONFIRMATION = _Paths.UPDATECONFIRMATION;
   static const ADDPLACE = _Paths.ADDPLACE;
+  static const PickupDropOff = _Paths.PickupDropOff;
 }
 
 abstract class _Paths {
@@ -21,4 +22,5 @@ abstract class _Paths {
   static const INPUTPHONENUMBER = '/input_phone';
   static const UPDATECONFIRMATION = '/update_confirmation';
   static const ADDPLACE = '/add_place';
+  static const PickupDropOff = '/Pickup_DropOff';
 }

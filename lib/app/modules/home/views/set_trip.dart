@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ryder/app/modules/home/widgets/set_trip_schedule.dart';
+import 'package:ryder/app/routes/app_pages.dart';
 import 'package:ryder/common/app_color/app_colors.dart';
 import 'package:ryder/common/app_text_style/google_app_style.dart';
 import 'package:ryder/common/localization_extension/localization_extension.dart';
@@ -308,7 +311,7 @@ class _SetTripSheetItemState extends State<SetTripSheetItem> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    // Handle set location on map
+                    Get.toNamed(Routes.PickupDropOff);
                   },
                   child: Row(
                     children: [

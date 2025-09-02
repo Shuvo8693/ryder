@@ -37,8 +37,7 @@ class HomeBottomSheet extends StatefulWidget {
   }
 }
 
-class _HomeBottomSheetState extends State<HomeBottomSheet>
-    with SingleTickerProviderStateMixin {
+class _HomeBottomSheetState extends State<HomeBottomSheet> with SingleTickerProviderStateMixin {
   late TabController _tabController;
   final TextEditingController _editingController = TextEditingController();
 
