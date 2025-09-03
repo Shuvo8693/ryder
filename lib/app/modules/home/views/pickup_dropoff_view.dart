@@ -5,6 +5,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:ryder/app/modules/home/widgets/home_bottom_sheet.dart';
 import 'package:ryder/app/modules/home/widgets/location_picker_bottomSheet.dart';
 import 'package:ryder/app/modules/home/widgets/pickup_dropoff_modalsheet.dart';
+import 'package:ryder/app/modules/home/widgets/ride_option_bottom_sheet.dart';
 import 'package:ryder/app/modules/onboard/widgets/language_selector.dart';
 import 'package:ryder/common/custom_appbar/custom_appbar.dart';
 import 'package:ryder/common/custom_map/reusable_map.dart';
@@ -143,10 +144,19 @@ class _PickupDropOffViewState extends State<PickupDropOffView> {
               initialAddress: ["Uttarkhan"],
               onAddressConfirmed: (value){
                    if(value.isNotEmpty){
-
+                     setState(() {
+                       isDropOff = !isDropOff;
+                     });
                    }
               }, index: 1,
             ),
+          ),
+          if(isPicked && isDropOff)
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: 0,
+            child: const RideOptionsBottomSheet(),
           ),
         ],
       ),

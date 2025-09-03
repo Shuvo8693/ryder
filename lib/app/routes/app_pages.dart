@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:ryder/app/modules/home/views/add_place.dart';
-import 'package:ryder/app/modules/home/views/pickup_dropoff.dart';
+import 'package:ryder/app/modules/home/views/pickup_dropoff_view.dart';
 import 'package:ryder/app/modules/onboard/views/input_phone_view.dart';
 import 'package:ryder/app/modules/onboard/views/update_confirmation_screen.dart';
 
