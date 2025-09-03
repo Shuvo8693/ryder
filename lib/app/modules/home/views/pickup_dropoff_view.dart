@@ -7,6 +7,7 @@ import 'package:ryder/app/modules/home/widgets/location_picker_bottomSheet.dart'
 import 'package:ryder/app/modules/home/widgets/mission_statement_woment_bottomsheet.dart';
 import 'package:ryder/app/modules/home/widgets/pickup_dropoff_modalsheet.dart';
 import 'package:ryder/app/modules/home/widgets/ride_option_bottom_sheet.dart';
+import 'package:ryder/app/modules/home/widgets/trip_duration_widgets.dart';
 import 'package:ryder/app/modules/onboard/widgets/language_selector.dart';
 import 'package:ryder/common/custom_appbar/custom_appbar.dart';
 import 'package:ryder/common/custom_map/reusable_map.dart';
@@ -85,39 +86,7 @@ class _PickupDropOffViewState extends State<PickupDropOffView> {
           ),
 
           /// Bottom Sheet
-          // Persistent Bottom Sheet
-          // PickupDropOffBottomSheet(
-          //   pickupAddress: pickupAddress,
-          //   dropoffAddress: dropoffAddress,
-          //   onPickupTap: () {
-          //     showPickupLocationModal(
-          //       context,
-          //       initialAddress: pickupAddress,
-          //       onAddressConfirmed: (address) {
-          //         setState(() {
-          //           pickupAddress = address;
-          //         });
-          //       },
-          //     );
-          //   },
-          //   onDropoffTap: () {
-          //     showDropOffLocationModal(
-          //       context,
-          //       initialAddress: dropoffAddress,
-          //       onAddressConfirmed: (address) {
-          //         setState(() {
-          //           dropoffAddress = address;
-          //         });
-          //       },
-          //     );
-          //   },
-          //   onConfirmRide: () {
-          //     // Handle ride confirmation
-          //     print('Pickup: $pickupAddress');
-          //     print('Dropoff: $dropoffAddress');
-          //     // Navigate to next screen or show ride options
-          //   },
-          // ),
+          //==Location pick==
           if(!isPicked)
           Positioned(
             left: 0,
@@ -135,6 +104,7 @@ class _PickupDropOffViewState extends State<PickupDropOffView> {
               }, index: 0,
             ),
           ),
+          //== Location dropOff ==
           if(isPicked)
           Positioned(
             left: 0,
@@ -152,6 +122,14 @@ class _PickupDropOffViewState extends State<PickupDropOffView> {
               }, index: 1,
             ),
           ),
+          if(isPicked && isDropOff)
+          Positioned(
+            left: 150.w,
+            right: 15.w,
+            bottom: 550.h,
+            child: TripDurationWidget(duration: "10 min", destination: "Uttara sector 7 Dhaka"),
+          ),
+          
           if(isPicked && isDropOff)
           Positioned(
             left: 0,
