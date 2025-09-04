@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:ryder/app/modules/home/widgets/set_fare_price_bottom_sheet.dart';
 import 'package:ryder/common/app_color/app_colors.dart';
 import 'package:ryder/common/app_images/app_svg.dart';
 import 'package:ryder/common/app_text_style/google_app_style.dart';
 import 'package:ryder/common/handle_bar/handle_bar_style.dart';
 import 'package:ryder/common/widgets/custom_button.dart';
+import 'package:ryder/common/widgets/spacing.dart';
 
 class RideBookingBottomSheet extends StatefulWidget {
   const RideBookingBottomSheet({super.key});
@@ -205,10 +207,15 @@ class _RideBookingBottomSheetState extends State<RideBookingBottomSheet> {
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
-                            Icon(
-                              Icons.edit,
-                              color: Colors.grey[400],
-                              size: 16.sp,
+                            GestureDetector(
+                              onTap: (){
+                                showSetFarePriceBottomSheet(context);
+                              },
+                              child: Icon(
+                                Icons.edit,
+                                color: Colors.grey[400],
+                                size: 18.sp,
+                              ),
                             ),
                           ],
                         ),
@@ -382,7 +389,7 @@ class _RideBookingBottomSheetState extends State<RideBookingBottomSheet> {
       builder: (context) => Container(
         padding: EdgeInsets.all(20.w),
         decoration: BoxDecoration(
-          color: const Color(0xFF1A1A2E),
+          color: Theme.of(context).primaryColor,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(20.r),
             topRight: Radius.circular(20.r),
@@ -391,6 +398,8 @@ class _RideBookingBottomSheetState extends State<RideBookingBottomSheet> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
+            HandleBarStyle.defaultHandle(),
+            verticalSpacing(8.h),
             Text(
               'Payment Method',
               style: GoogleFontStyles.h3(
@@ -451,5 +460,19 @@ void showRideBookingModal(BuildContext context) {
     isScrollControlled: true,
     backgroundColor: Colors.transparent,
     builder: (context) => const RideBookingBottomSheet(),
+  );
+}
+
+// set fare price bottom sheet
+void showSetFarePriceBottomSheet(BuildContext context) {
+  showModalBottomSheet(
+    context: context,
+    backgroundColor: Colors.transparent,
+    isScrollControlled: true,
+    builder: (context) => SetFarePriceBottomSheet(
+      onFareSelected: (fare) {
+        print('Selected fare: \$${fare.toStringAsFixed(2)}');
+      },
+    ),
   );
 }
