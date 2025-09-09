@@ -105,13 +105,11 @@ class _HomeViewState extends State<HomeView> {
           //     },
           //   ),
           // ),
-
           HomeBottomSheet(
             isModal: true,
             onLocationSelected: (LatLng location, String title) {
               // Navigate to selected location on map
               _mapKey.currentState?.animateToLocation(location, zoom: 17.0);
-
               // Optionally add a marker for the destination
               setState(() {
                 _carMarkers.add(

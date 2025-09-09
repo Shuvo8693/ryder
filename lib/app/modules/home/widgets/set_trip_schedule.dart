@@ -54,7 +54,6 @@ class _TripSetScheduleBottomSheetItemState extends State<TripSetScheduleBottomSh
               borderRadius: BorderRadius.circular(2.r),
             ),
           ),
-
           // Title
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 8.h),
@@ -66,9 +65,7 @@ class _TripSetScheduleBottomSheetItemState extends State<TripSetScheduleBottomSh
               ),
             ),
           ),
-
           SizedBox(height: 24.h),
-
           // Options List
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.w),

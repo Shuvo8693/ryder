@@ -214,7 +214,6 @@ class _SetTripSheetItemState extends State<SetTripSheetItem> {
               ],
             ),
           ),
-
           SizedBox(height: 24.h),
           // Schedule for later Action buttons
           Padding(

@@ -131,7 +131,6 @@ class _PickupDropOffViewState extends State<PickupDropOffView> {
             bottom: 550.h,
             child: TripDurationWidget(duration: "10 min", destination: "Uttara sector 7 Dhaka"),
           ),
-          
           if(isPicked && isDropOff)
           Positioned(
             left: 0,
