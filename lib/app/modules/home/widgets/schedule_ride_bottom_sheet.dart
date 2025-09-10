@@ -1,8 +1,13 @@
-import 'package:bottom_picker/resources/arrays.dart';
+
+
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:bottom_picker/bottom_picker.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:ryder/app/modules/home/widgets/ride_confirmation_bottom_sheet.dart';
 import 'package:ryder/common/app_color/app_colors.dart';
 import 'package:ryder/common/app_text_style/google_app_style.dart';
 import 'package:ryder/common/handle_bar/handle_bar_style.dart';
@@ -12,7 +17,8 @@ class ScheduleRideBottomSheet extends StatefulWidget {
   const ScheduleRideBottomSheet({super.key});
 
   @override
-  State<ScheduleRideBottomSheet> createState() => _ScheduleRideBottomSheetState();
+  State<ScheduleRideBottomSheet> createState() =>
+      _ScheduleRideBottomSheetState();
 
   static Future<void> show(BuildContext context) {
     return showModalBottomSheet(
@@ -29,7 +35,6 @@ class _ScheduleRideBottomSheetState extends State<ScheduleRideBottomSheet> {
   TimeOfDay selectedTime = const TimeOfDay(hour: 10, minute: 0);
   bool isAM = true;
   int selectedIndex = 3; // Fourth item selected as shown in image
-
 
   @override
   Widget build(BuildContext context) {
@@ -63,9 +68,7 @@ class _ScheduleRideBottomSheetState extends State<ScheduleRideBottomSheet> {
                   ),
                   Text(
                     'Schedule a Ride',
-                    style: GoogleFontStyles.h4(
-                      fontWeight: FontWeight.w500,
-                    ),
+                    style: GoogleFontStyles.h4(fontWeight: FontWeight.w500),
                   ),
                   SizedBox(width: 48.w), // Balance the back button
                 ],
@@ -139,33 +142,34 @@ class _ScheduleRideBottomSheetState extends State<ScheduleRideBottomSheet> {
                       ),
                     ),
 
-                   // SizedBox(height: 30.h),
+                    // SizedBox(height: 30.h),
                   ],
                 ),
               ),
             ),
 
             // Bottom Button
-            // Padding(
-            //   padding: EdgeInsets.all(8.sp),
-            //   child: CustomButton(
-            //     text: 'Confirm your ride',
-            //     onTap: () {
-            //       Navigator.pop(context);
-            //       // Handle confirm ride action
-            //     },
-            //   ),
-            // ),
+            Padding(
+              padding: EdgeInsets.all(8.sp),
+              child: CustomButton(
+                text: 'Confirm your ride',
+                onTap: () {
+                  RideConfirmationBottomSheet.show(context);
+                },
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 
- Widget  _showDateTimePicker(BuildContext context) {
-   return BottomPicker.dateTime(
+  Widget _showDateTimePicker(BuildContext context) {
+    return BottomPicker.dateTime(
       minuteInterval: 5,
-     backgroundColor: AppColors.primaryColor,
+      displaySubmitButton: true,
+      closeOnSubmit: false,
+      backgroundColor: AppColors.primaryColor,
       // headerBuilder: (context) {
       //   return Row(
       //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -185,24 +189,25 @@ class _ScheduleRideBottomSheetState extends State<ScheduleRideBottomSheet> {
           selectedTime = TimeOfDay.fromDateTime(date);
           isAM = date.hour < 12;
         });
+        Get.snackbar.call('Done','Submitted');
       },
-     //  minDateTime: DateTime.now(),
-     // maxDateTime: DateTime.now().add(const Duration(days: 30)),
-     initialDateTime: selectedDate,
-     buttonWidth: 200.w,
-     pickerThemeData: CupertinoTextThemeData(
-       pickerTextStyle: GoogleFontStyles.h4(
-       color: Colors.white, // Set picker text color to white
-       fontWeight: FontWeight.w400,
-       ),
-       dateTimePickerTextStyle : GoogleFontStyles.h4(
-       color: Colors.white, // Set picker text color to white
-       fontWeight: FontWeight.w400,
-       ),
-     ),
+      //  minDateTime: DateTime.now(),
+      // maxDateTime: DateTime.now().add(const Duration(days: 30)),
+      initialDateTime: selectedDate,
+      buttonWidth: 200.w,
+      pickerThemeData: CupertinoTextThemeData(
+        pickerTextStyle: GoogleFontStyles.h4(
+          color: Colors.white, // Set picker text color to white
+          fontWeight: FontWeight.w400,
+        ),
+        dateTimePickerTextStyle: GoogleFontStyles.h4(
+          color: Colors.white, // Set picker text color to white
+          fontWeight: FontWeight.w400,
+        ),
+      ),
       gradientColors: [
         AppColors.seconderyAppColor,
-        AppColors.seconderyAppColor
+        AppColors.seconderyAppColor,
       ],
     );
   }
