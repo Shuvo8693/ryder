@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:ryder/app/modules/home/widgets/schedule_ride_bottom_sheet.dart';
 import 'package:ryder/app/modules/home/widgets/set_fare_price_bottom_sheet.dart';
 import 'package:ryder/common/app_color/app_colors.dart';
 import 'package:ryder/common/app_images/app_svg.dart';
@@ -174,9 +175,7 @@ class _RideBookingBottomSheetState extends State<RideBookingBottomSheet> {
                         ),
                       ],
                     ),
-
                     SizedBox(height: 20.h),
-
                     // Fare suggestion
                     Container(
                       padding: EdgeInsets.all(12.w),
@@ -223,9 +222,7 @@ class _RideBookingBottomSheetState extends State<RideBookingBottomSheet> {
                         ],
                       ),
                     ),
-
                     SizedBox(height: 20.h),
-
                     // Payment breakdown
                     Text(
                       'Payment',
@@ -302,9 +299,10 @@ class _RideBookingBottomSheetState extends State<RideBookingBottomSheet> {
                         SizedBox(width: 12.w),
                         GestureDetector(
                           onTap: () {
-                            setState(() {
-                              isScheduled = !isScheduled;
-                            });
+                            // setState(() {
+                            //   isScheduled = !isScheduled;
+                            // });
+                            ScheduleRideBottomSheet.show(context);
                           },
                           child: Container(
                             padding: EdgeInsets.symmetric(
